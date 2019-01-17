@@ -1,12 +1,14 @@
 ﻿#include <iomanip>
 #include "Lab2.h"
+constexpr int OCT_LENGTH = 12;
+constexpr int DEC_LENGTH = 10;
+constexpr int HEX_LENGTH = 8;
+constexpr int POS_LENGTH = 5;
+constexpr int NUM_LENGTH = 15;
 namespace lab2
 {
 	void PrintIntegers(std::istream& in, std::ostream& out)
 	{
-		constexpr int OCT_LENGTH = 12;
-		constexpr int DEC_LENGTH = 10;
-		constexpr int HEX_LENGTH = 8;
 		out << std::setw(OCT_LENGTH) << "oct" << " " << std::setw(DEC_LENGTH) << "dec" << " " << std::setw(HEX_LENGTH) << "hex" << std::endl;
 		out << std::setfill('-') << std::setw(OCT_LENGTH) << "" << " " << std::setw(DEC_LENGTH) << "" << " " << std::setw(HEX_LENGTH) << "" << std::endl << std::setfill(' ');
 
@@ -34,8 +36,6 @@ namespace lab2
 
 	void PrintMaxFloat(std::istream& in, std::ostream& out)
 	{
-		constexpr int POS_LENGTH = 5;
-		constexpr int NUM_LENGTH = 15;
 		float max;
 		in >> max;
 		out << std::showpos << std::showpoint << std::internal << std::fixed << std::setprecision(3);
