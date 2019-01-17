@@ -53,6 +53,6 @@ namespace lab2
 					max = num;
 			}
 		}
-		out << std::setw(posLength) << std::left << "max:" << std::setw(numLength) << max << std::endl;
+		out << std::setw(posLength) << std::left << "max:" << std::setw(numLength) << std::internal << max << std::endl;
 	}
 }
