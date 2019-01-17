@@ -5,5 +5,6 @@ using namespace std;
 
 int main()
 {
+	lab2::PrintMaxFloat(cin, cout);
 	return 0;
 }

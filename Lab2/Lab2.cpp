@@ -4,11 +4,11 @@ namespace lab2
 {
 	void PrintIntegers(std::istream& in, std::ostream& out)
 	{
-		const int octLength = 12;
-		const int decLength = 10;
-		const int hexLength = 8;
-		out << std::setw(octLength) << "oct" << " " << std::setw(decLength) << "dec" << " " << std::setw(hexLength) << "hex" << std::endl;
-		out << std::setfill('-') << std::setw(octLength) << "" << " " << std::setw(decLength) << "" << " " << std::setw(hexLength) << "" << std::endl << std::setfill(' ');
+		constexpr int OCT_LENGTH = 12;
+		constexpr int DEC_LENGTH = 10;
+		constexpr int HEX_LENGTH = 8;
+		out << std::setw(OCT_LENGTH) << "oct" << " " << std::setw(DEC_LENGTH) << "dec" << " " << std::setw(HEX_LENGTH) << "hex" << std::endl;
+		out << std::setfill('-') << std::setw(OCT_LENGTH) << "" << " " << std::setw(DEC_LENGTH) << "" << " " << std::setw(HEX_LENGTH) << "" << std::endl << std::setfill(' ');
 
 		while (!in.eof())
 		{
@@ -26,20 +26,19 @@ namespace lab2
 			{
 				continue;
 			}
-			out << std::setw(octLength) << std::oct << num << " "
-				<< std::setw(decLength) << std::dec << num << " "
-				<< std::setw(hexLength) << std::uppercase << std::hex << num << std::endl;
+			out << std::setw(OCT_LENGTH) << std::oct << num << " "
+				<< std::setw(DEC_LENGTH) << std::dec << num << " "
+				<< std::setw(HEX_LENGTH) << std::uppercase << std::hex << num << std::endl;
 		}
 	}
 
 	void PrintMaxFloat(std::istream& in, std::ostream& out)
 	{
-		const int posLength = 5;
-		const int numLength = 15;
+		constexpr int POS_LENGTH = 5;
+		constexpr int NUM_LENGTH = 15;
 		float max;
 		in >> max;
-		out << std::showpos << std::showpoint << std::internal<<std::fixed;
-		out.precision(3);
+		out << std::showpos << std::showpoint << std::internal << std::fixed << std::setprecision(3);
 		if (in.fail())
 		{
 			in.clear();
@@ -47,7 +46,7 @@ namespace lab2
 		}
 		else
 		{
-			out << std::setw(posLength) << "" << std::setw(numLength) << max << std::endl;
+			out << std::setw(POS_LENGTH) << "" << std::setw(NUM_LENGTH) << max << std::endl;
 		}
 		while (!in.eof())
 		{
@@ -60,10 +59,10 @@ namespace lab2
 
 				continue;
 			}
-			out << std::setw(posLength) << "" <<std::setw(numLength)<< num << std::endl;
+			out << std::setw(POS_LENGTH) << "" << std::setw(NUM_LENGTH) << num << std::endl;
 			if (num > max)
 				max = num;
 		}
-		out << std::setw(posLength) << "max:" << std::setw(numLength) << max << std::endl;
+		out << std::setw(POS_LENGTH) << "max:" << std::setw(NUM_LENGTH) << max << std::endl;
 	}
 }
