@@ -36,18 +36,8 @@ namespace lab2
 
 	void PrintMaxFloat(std::istream& in, std::ostream& out)
 	{
-		float max;
-		in >> max;
+		float max = FLT_MIN;
 		out << std::showpos << std::showpoint << std::internal << std::fixed << std::setprecision(3);
-		if (in.fail())
-		{
-			in.clear();
-			in.ignore(LLONG_MAX, ' ');
-		}
-		else
-		{
-			out << std::setw(POS_LENGTH) << "" << std::setw(NUM_LENGTH) << max << std::endl;
-		}
 		while (!in.eof())
 		{
 			float num;
