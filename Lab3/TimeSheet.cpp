@@ -2,13 +2,19 @@
 
 namespace lab3
 {
-	TimeSheet::TimeSheet(const char* name, unsigned int maxEntries) :mName(name), mMaxEntries(maxEntries), mCountEntries(0)
+	TimeSheet::TimeSheet(const char* name, unsigned int maxEntries) :
+		mName(name),
+		mMaxEntries(maxEntries),
+		mCountEntries(0)
 	{
 		mTime = new unsigned int[maxEntries];
 		memset(mTime, 0, mMaxEntries * sizeof(unsigned int));
 	}
 
-	TimeSheet::TimeSheet(const TimeSheet& copy) :mName(copy.mName), mMaxEntries(copy.mMaxEntries), mCountEntries(copy.mCountEntries)
+	TimeSheet::TimeSheet(const TimeSheet& copy) :
+		mName(copy.mName),
+		mMaxEntries(copy.mMaxEntries),
+		mCountEntries(copy.mCountEntries)
 	{
 		mTime = new unsigned int[copy.mMaxEntries];
 		memcpy(mTime, copy.mTime, copy.mCountEntries * sizeof(unsigned int));
@@ -16,7 +22,7 @@ namespace lab3
 
 	TimeSheet::~TimeSheet()
 	{
-		delete mTime;
+		delete[] mTime;
 		mTime = nullptr;
 	}
 
