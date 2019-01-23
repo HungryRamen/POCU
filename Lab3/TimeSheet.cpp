@@ -8,7 +8,7 @@ namespace lab3
 		memset(mTime, 0, mMaxEntries * sizeof(unsigned int));
 	}
 
-	TimeSheet::TimeSheet(const TimeSheet & copy) :mName(copy.mName), mMaxEntries(copy.mMaxEntries), mCountEntries(copy.mCountEntries)
+	TimeSheet::TimeSheet(const TimeSheet& copy) :mName(copy.mName), mMaxEntries(copy.mMaxEntries), mCountEntries(copy.mCountEntries)
 	{
 		mTime = new unsigned int[copy.mMaxEntries];
 		memcpy(mTime, copy.mTime, copy.mCountEntries * sizeof(unsigned int));
@@ -22,15 +22,11 @@ namespace lab3
 
 	void TimeSheet::AddTime(int timeInHours)
 	{
-		if (timeInHours <= 0 || mMaxEntries <= mCountEntries)
+		if (timeInHours <= 0 || timeInHours > 10 || mMaxEntries <= mCountEntries)
 		{
 			return;
 		}
-		if (mTime[mCountEntries] + timeInHours > 10)
-		{
-			return;
-		}
-		mTime[mCountEntries++] += timeInHours;
+		mTime[mCountEntries++] = timeInHours;
 	}
 
 	int TimeSheet::GetTimeEntry(unsigned int index) const
@@ -61,6 +57,10 @@ namespace lab3
 	float TimeSheet::GetStandardDeviation() const
 	{
 		float sum = 0.0f;
+		if (mCountEntries <= 0)
+		{
+			return sum;
+		}
 		float deviation = 0.0f;
 		float averagetime = GetAverageTime();
 		for (unsigned int index = 0; index < mCountEntries; index++)
@@ -69,7 +69,7 @@ namespace lab3
 			sum += deviation * deviation;
 		}
 
-		return sqrtf(sum / mCountEntries - 1);
+		return sqrtf(sum / mCountEntries);
 	}
 
 	const std::string& TimeSheet::GetName() const
