@@ -57,7 +57,12 @@ namespace lab3
 	float TimeSheet::GetAverageTime() const
 	{
 		float countEntries = (float)mCountEntries;
-		return GetTotalTime() / countEntries;
+		int totalTime = GetTotalTime();
+		if (totalTime == 0)
+		{
+			return 0.0f;
+		}
+		return totalTime / countEntries;
 	}
 
 	float TimeSheet::GetStandardDeviation() const

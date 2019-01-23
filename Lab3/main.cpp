@@ -45,5 +45,6 @@ void main()
 	std::cout << pope.GetName() << std::endl;               // Pope
 	
 	lab3::TimeSheet hulk("HULK", 10);
+	std::cout << hulk.GetAverageTime() << std::endl;        // 4.16667
 	std::cout << hulk.GetStandardDeviation() << std::endl;//0.0
 }
