@@ -54,20 +54,20 @@ namespace assignment1
 
 	void MyString::Append(const char* s)
 	{
-		//int stringLen = mStringLen + StrLen(s);
-		//char* stringSum = new char[stringLen];
-		//MemCpy(stringSum, mString, mStringLen - 1);
-		//MemCpy(stringSum + (mStringLen - 1), s, StrLen(s) + 1);
-		//delete[] mString;
-		//mString = stringSum;
-		//mStringLen = stringLen;
+		int stringLen = mStringLen + StrLen(s);
+		char* stringSum = new char[stringLen];
+		MemCpy(stringSum, mString, mStringLen - 1);
+		MemCpy(stringSum + (mStringLen - 1), s, StrLen(s) + 1);
+		delete[] mString;
+		mString = stringSum;
+		mStringLen = stringLen;
 	}
 
 	MyString MyString::operator+(const MyString& other) const
 	{
 		MyString sum("");
-		//sum.Append(mString);
-		//sum.Append(other.mString);
+		sum.Append(mString);
+		sum.Append(other.mString);
 		return sum;
 	}
 
