@@ -127,8 +127,8 @@ namespace assignment1
 		int stringLen = mStringLen + srcStringLen;
 		char* stringSum = new char[stringLen];
 		int index = 0;
-		unsigned int indexSrc1 = 0;
 		int indexSrc2 = 0;
+		unsigned int indexSrc1 = 0;
 		while (index < stringLen - 1)
 		{
 			if (indexSrc1 < mStringLen - 1)
@@ -153,8 +153,9 @@ namespace assignment1
 	bool MyString::RemoveAt(unsigned int index)
 	{
 		if (mStringLen - 1 <= index)
+		{
 			return false;
-		
+		}
 		while (mString[index + 1] != '\0')
 		{
 			mString[index] = mString[index + 1];
@@ -172,18 +173,76 @@ namespace assignment1
 
 	void MyString::PadLeft(unsigned int totalLength)
 	{
+		if (totalLength < mStringLen - 1)
+		{
+			return;
+		}
+		char* stringPad = new char[totalLength + 1];
+		unsigned int index = 0;
+		for (index; index < totalLength - mStringLen + 1; index++)
+		{
+			stringPad[index] = ' ';
+		}
+		MemCpy(stringPad + index, mString, mStringLen);
+		delete[] mString;
+		mString = stringPad;
+		mStringLen = totalLength + 1;
 	}
 
 	void MyString::PadLeft(unsigned int totalLength, const char c)
 	{
+		if (totalLength < mStringLen - 1)
+		{
+			return;
+		}
+		char* stringPad = new char[totalLength + 1];
+		unsigned int index = 0;
+		for (index; index < totalLength - mStringLen + 1; index++)
+		{
+			stringPad[index] = c;
+		}
+		MemCpy(stringPad + index, mString, mStringLen);
+		delete[] mString;
+		mString = stringPad;
+		mStringLen = totalLength + 1;
 	}
 
 	void MyString::PadRight(unsigned int totalLength)
 	{
+		if (totalLength < mStringLen - 1)
+		{
+			return;
+		}
+		char* stringPad = new char[totalLength + 1];
+		MemCpy(stringPad, mString, mStringLen - 1);
+		unsigned int index = mStringLen - 1;
+		for (index; index < totalLength; index++)
+		{
+			stringPad[index] = ' ';
+		}
+		stringPad[index] = '\0';
+		delete[] mString;
+		mString = stringPad;
+		mStringLen = totalLength + 1;
 	}
 
 	void MyString::PadRight(unsigned int totalLength, const char c)
 	{
+		if (totalLength < mStringLen - 1)
+		{
+			return;
+		}
+		char* stringPad = new char[totalLength + 1];
+		MemCpy(stringPad, mString, mStringLen - 1);
+		unsigned int index = mStringLen - 1;
+		for (index; index < totalLength; index++)
+		{
+			stringPad[index] = c;
+		}
+		stringPad[index] = '\0';
+		delete[] mString;
+		mString = stringPad;
+		mStringLen = totalLength + 1;
 	}
 
 	void MyString::Reverse()

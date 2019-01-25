@@ -89,19 +89,19 @@ int main()
 	//cout << s64.LastIndexOf("ell") << endl;   // -1
 	
 	///* Interleave() Ex */
-	cout << "-----------------------" << endl;
-	cout << "Interleave()" << endl;
-	MyString s7("Hello");
-	s7.Interleave(" World");
-	cout << s7.GetCString() << endl;  //H eWlolrold
-	
-	MyString s72("A");
-	s72.Interleave("BCDEF");
-	cout << s72.GetCString() << endl;  // ABCDEF
-	
-	MyString s73("bcdef");
-	s73.Interleave("a");
-	cout << s73.GetCString() << endl;  // bacdef
+	//cout << "-----------------------" << endl;
+	//cout << "Interleave()" << endl;
+	//MyString s7("Hello");
+	//s7.Interleave(" World");
+	//cout << s7.GetCString() << endl;  //H eWlolrold
+	//
+	//MyString s72("A");
+	//s72.Interleave("BCDEF");
+	//cout << s72.GetCString() << endl;  // ABCDEF
+	//
+	//MyString s73("bcdef");
+	//s73.Interleave("a");
+	//cout << s73.GetCString() << endl;  // bacdef
 
 	///* RemoveAt() Ex */
 	//cout << "-----------------------" << endl;
@@ -131,7 +131,7 @@ int main()
 	//cout << s92.GetCString() << endl;
 	//s92.PadLeft(7, '-');  // "--World"
 	//cout << s92.GetCString() << endl;
-	//
+	
 	///* PadRight() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "PadRight()" << endl;
@@ -146,7 +146,7 @@ int main()
 	//cout << s102.GetCString() << endl;
 	//s102.PadRight(7, '-');  // "World--"
 	//cout << s102.GetCString() << endl;
-	//
+	
 	///* Reverse() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "Reverse()" << endl;
