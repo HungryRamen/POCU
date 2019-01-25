@@ -26,12 +26,12 @@ namespace assignment1
 
 	unsigned int MyString::GetLength() const
 	{
-		//return mStringLen - 1;
+		return mStringLen - 1;
 	}
 
 	const char* MyString::GetCString() const
 	{
-		//return mString;
+		return mString;
 	}
 
 	void MyString::Append(const char* s)
@@ -47,10 +47,10 @@ namespace assignment1
 
 	MyString MyString::operator+(const MyString& other) const
 	{
-		//MyString sum("");
+		MyString sum("");
 		//sum.Append(mString);
 		//sum.Append(other.mString);
-		//return sum;
+		return sum;
 	}
 
 	int MyString::IndexOf(const char* s)
@@ -58,25 +58,24 @@ namespace assignment1
 		//int index = 0;
 		//if (s == "")
 		//	return index;
-		//bool bSearch = false;
 		//int stringLen = StrLen(s);
+		//int count = 0;
 		//while (mString[index] != '\0')
 		//{
-		//	for (int count = 0; count < stringLen; count++)
+		//	for (count = 0; count < stringLen; count++)
 		//	{
-		//		if (mString[index] == s[count])
+		//		if (mString[index + count] != s[count])
 		//		{
-		//			bSearch = true;
 		//			break;
 		//		}
 		//	}
-		//	if (bSearch)
-		//		break;
+		//	if (count == stringLen)
+		//	{
+		//		return index;
+		//	}
 		//	index++;
 		//}
-		//if (!bSearch)
-		//	index = -1;
-		//return index;
+		return -1;
 	}
 
 	int MyString::LastIndexOf(const char* s)
@@ -105,7 +104,7 @@ namespace assignment1
 		//delete[] mString;
 		//mString = changeString;
 		//mStringLen = stringLen;
-		//return true;
+		return true;
 	}
 
 	void MyString::PadLeft(unsigned int totalLength)
