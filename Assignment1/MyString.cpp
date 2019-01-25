@@ -107,7 +107,7 @@ namespace assignment1
 
 	bool MyString::RemoveAt(unsigned int index)
 	{
-		if (mStringLen <= index)
+		if (mStringLen - 1 <= index)
 			return false;
 		
 		while (mString[index + 1] != '\0')

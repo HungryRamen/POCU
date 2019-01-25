@@ -33,15 +33,15 @@ int main()
 	//cout << s2.GetCString() << endl;  // Hello
 	//
 	///* Append() Ex */
-	cout << "-----------------------" << endl;
-	cout << "Append()" << endl;
-	MyString s3("Hello");
-	s3.Append(" World");
-	cout << s3.GetCString() << endl;  // Hello World
-	s3.Append("\n\tWorld\n");
-	cout << s3.GetCString() << endl;
-	MyString s4("");
-	s4.Append("");
+	//cout << "-----------------------" << endl;
+	//cout << "Append()" << endl;
+	//MyString s3("Hello");
+	//s3.Append(" World");
+	//cout << s3.GetCString() << endl;  // Hello World
+	//s3.Append("\n\tWorld\n");
+	//cout << s3.GetCString() << endl;
+	//MyString s4("");
+	//s4.Append("");
 	
 	///* operator+ Ex */
 	//cout << "-----------------------" << endl;
