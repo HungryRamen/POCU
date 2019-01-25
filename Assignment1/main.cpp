@@ -35,7 +35,7 @@ int main()
 	///* Append() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "Append()" << endl;
-	//MyString s3("Hello");
+	//MyString s3(nullptr);
 	//s3.Append(" World");
 	//cout << s3.GetCString() << endl;  // Hello World
 	//s3.Append("\n\tWorld\n");
@@ -51,34 +51,23 @@ int main()
 	//cout << s43.GetCString() << endl;   //Hello World
 	
 	///* IndexOf() Ex */
-	cout << "-----------------------" << endl;
-	cout << "IndexOf()" << endl;
-	MyString s5("Hello");
-	cout << s5.IndexOf("ell") << endl;   // 1
-	cout << s5.IndexOf("l") << endl;     // 2
-	cout << s5.IndexOf("This") << endl;  // -1
-	cout << s5.IndexOf("") << endl;   // 0
-	
-	MyString s52("");
-	cout << s52.IndexOf("") << endl;   // 0
-	cout << s52.IndexOf("A") << endl; // -1
-	
-	MyString s53("Hellello");
-	MyString s54("Heloo");
-	cout << s53.IndexOf("ell") << endl;   // 1
-	cout << s54.IndexOf("ell") << endl;   // -1
-	
+	//cout << "-----------------------" << endl;
+	//cout << "IndexOf()" << endl;
+	//MyString s5("Hello");
+	//cout << s5.IndexOf("ell") << endl;   // 1
+	//cout << s5.IndexOf("l") << endl;     // 2
+	//cout << s5.IndexOf("This") << endl;  // -1
+	//cout << s5.IndexOf("") << endl;   // 0
+	//
+	//MyString s52("");
+	//cout << s52.IndexOf("") << endl;   // 0
+	//cout << s52.IndexOf("A") << endl; // -1
+	//
+	//MyString s53("Hellello");
+	//MyString s54("Heloo");
+	//cout << s53.IndexOf("ell") << endl;   // 1
+	//cout << s54.IndexOf("ell") << endl;   // -1
 
-	MyString test4 = "fiire";
-	int iCheck;
-
-	iCheck = test4.IndexOf("\0");
-	iCheck = test4.IndexOf(nullptr);
-	iCheck = test4.IndexOf("iireF");
-	iCheck = test4.IndexOf("ire");
-	iCheck = test4.IndexOf("ii");
-	iCheck = test4.IndexOf("This");
-	iCheck = test4.IndexOf("i");
 	///* LastIndexOf() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "LastIndexOf()" << endl;

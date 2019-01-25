@@ -7,15 +7,33 @@ namespace assignment1
 	MyString::MyString(const char* s) :
 		mStringLen(StrLen(s) + 1)
 	{
-		mString = new char[mStringLen];
-		MemCpy(mString, s, mStringLen);
+		if (s == nullptr)
+		{
+			mStringLen = 1;
+			mString = new char[mStringLen];
+			MemCpy(mString, "\0", mStringLen);
+		}
+		else
+		{
+			mString = new char[mStringLen];
+			MemCpy(mString, s, mStringLen);
+		}
 	}
 
 	MyString::MyString(const MyString& other):
 		mStringLen(other.mStringLen)
 	{
-		mString = new char[mStringLen];
-		MemCpy(mString, other.mString, mStringLen);
+		if (other.mString == nullptr)
+		{
+			mStringLen = 1;
+			mString = new char[mStringLen];
+			MemCpy(mString, "\0", mStringLen);
+		}
+		else
+		{
+			mString = new char[mStringLen];
+			MemCpy(mString, other.mString, mStringLen);
+		}
 	}
 
 	MyString::~MyString()
