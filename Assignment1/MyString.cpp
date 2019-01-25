@@ -73,26 +73,26 @@ namespace assignment1
 
 	int MyString::IndexOf(const char* s)
 	{
-		//int index = 0;
-		//if (s == "")
-		//	return index;
-		//int stringLen = StrLen(s);
-		//int count = 0;
-		//while (mString[index] != '\0')
-		//{
-		//	for (count = 0; count < stringLen; count++)
-		//	{
-		//		if (mString[index + count] != s[count])
-		//		{
-		//			break;
-		//		}
-		//	}
-		//	if (count == stringLen)
-		//	{
-		//		return index;
-		//	}
-		//	index++;
-		//}
+		int index = 0;
+		if (s == "")
+			return index;
+		int stringLen = StrLen(s);
+		int count = 0;
+		while (mString[index] != '\0')
+		{
+			for (count = 0; count < stringLen; count++)
+			{
+				if (mString[index + count] != s[count])
+				{
+					break;
+				}
+			}
+			if (count == stringLen)
+			{
+				return index;
+			}
+			index++;
+		}
 		return -1;
 	}
 
@@ -107,21 +107,21 @@ namespace assignment1
 
 	bool MyString::RemoveAt(unsigned int index)
 	{
-		//if (mStringLen <= index)
-		//	return false;
-		//
-		//while (mString[index + 1] != '\0')
-		//{
-		//	mString[index] = mString[index + 1];
-		//	index++;
-		//}
-		//mString[index] = '\0';
-		//int stringLen = StrLen(mString) + 1;
-		//char* changeString = new char[stringLen];
-		//MemCpy(changeString, mString, stringLen);
-		//delete[] mString;
-		//mString = changeString;
-		//mStringLen = stringLen;
+		if (mStringLen <= index)
+			return false;
+		
+		while (mString[index + 1] != '\0')
+		{
+			mString[index] = mString[index + 1];
+			index++;
+		}
+		mString[index] = '\0';
+		int stringLen = StrLen(mString) + 1;
+		char* changeString = new char[stringLen];
+		MemCpy(changeString, mString, stringLen);
+		delete[] mString;
+		mString = changeString;
+		mStringLen = stringLen;
 		return true;
 	}
 
