@@ -71,38 +71,38 @@ int main()
 	//cout << s54.IndexOf("ell") << endl;   // -1
 
 	///* LastIndexOf() Ex */
-	cout << "-----------------------" << endl;
-	cout << "LastIndexOf()" << endl;
-	MyString s6("Hello");
-	cout << s6.LastIndexOf("ell") << endl;   // 1
-	cout << s6.LastIndexOf("l") << endl;     // 3
-	cout << s6.LastIndexOf("This") << endl;  // -1
-	cout << s6.LastIndexOf("") << endl;   // 5
-	
-	MyString s62("");
-	cout << s62.LastIndexOf("") << endl;  // 0
-	cout << s62.LastIndexOf("A") << endl; // -1
-	
-	MyString s63("Hellello");
-	MyString s64("Heloo");
-	cout << s63.LastIndexOf("ell") << endl;   // 4
-	cout << s64.LastIndexOf("ell") << endl;   // -1
+	//cout << "-----------------------" << endl;
+	//cout << "LastIndexOf()" << endl;
+	//MyString s6("Hello");
+	//cout << s6.LastIndexOf("ell") << endl;   // 1
+	//cout << s6.LastIndexOf("l") << endl;     // 3
+	//cout << s6.LastIndexOf("This") << endl;  // -1
+	//cout << s6.LastIndexOf("") << endl;   // 5
+	//
+	//MyString s62("");
+	//cout << s62.LastIndexOf("") << endl;  // 0
+	//cout << s62.LastIndexOf("A") << endl; // -1
+	//
+	//MyString s63("Hellello");
+	//MyString s64("Heloo");
+	//cout << s63.LastIndexOf("ell") << endl;   // 4
+	//cout << s64.LastIndexOf("ell") << endl;   // -1
 	
 	///* Interleave() Ex */
-	//cout << "-----------------------" << endl;
-	//cout << "Interleave()" << endl;
-	//MyString s7("Hello");
-	//s7.Interleave(" World");
-	//cout << s7.GetCString() << endl;  //H eWlolrold
-	//
-	//MyString s72("A");
-	//s72.Interleave("BCDEF");
-	//cout << s72.GetCString() << endl;  // ABCDEF
-	//
-	//MyString s73("bcdef");
-	//s73.Interleave("a");
-	//cout << s73.GetCString() << endl;  // bacdef
-	//
+	cout << "-----------------------" << endl;
+	cout << "Interleave()" << endl;
+	MyString s7("Hello");
+	s7.Interleave(" World");
+	cout << s7.GetCString() << endl;  //H eWlolrold
+	
+	MyString s72("A");
+	s72.Interleave("BCDEF");
+	cout << s72.GetCString() << endl;  // ABCDEF
+	
+	MyString s73("bcdef");
+	s73.Interleave("a");
+	cout << s73.GetCString() << endl;  // bacdef
+
 	///* RemoveAt() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "RemoveAt()" << endl;

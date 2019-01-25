@@ -123,6 +123,31 @@ namespace assignment1
 
 	void MyString::Interleave(const char* s)
 	{
+		int srcStringLen = StrLen(s);
+		int stringLen = mStringLen + srcStringLen;
+		char* stringSum = new char[stringLen];
+		int index = 0;
+		unsigned int indexSrc1 = 0;
+		int indexSrc2 = 0;
+		while (index < stringLen - 1)
+		{
+			if (indexSrc1 < mStringLen - 1)
+			{
+				stringSum[index] = mString[indexSrc1];
+				indexSrc1++;
+				index++;
+			}
+			if (indexSrc2 < srcStringLen)
+			{
+				stringSum[index] = s[indexSrc2];
+				indexSrc2++;
+				index++;
+			}
+		}
+		stringSum[index] = '\0';
+		delete[] mString;
+		mString = stringSum;
+		mStringLen = stringLen;
 	}
 
 	bool MyString::RemoveAt(unsigned int index)
