@@ -55,6 +55,8 @@ namespace assignment1
 	void MyString::Append(const char* s)
 	{
 		int stringLen = mStringLen + StrLen(s);
+		if (stringLen == 0)
+			return;
 		char* stringSum = new char[stringLen];
 		MemCpy(stringSum, mString, mStringLen - 1);
 		MemCpy(stringSum + (mStringLen - 1), s, StrLen(s) + 1);
@@ -124,6 +126,8 @@ namespace assignment1
 	void MyString::Interleave(const char* s)
 	{
 		int srcStringLen = StrLen(s);
+		if (srcStringLen == 0)
+			return;
 		int stringLen = mStringLen + srcStringLen;
 		char* stringSum = new char[stringLen];
 		int index = 0;
@@ -265,7 +269,7 @@ namespace assignment1
 		{
 			return false;
 		}
-		for (int index = 0; index < mStringLen; index++)
+		for (unsigned int index = 0; index < mStringLen; index++)
 		{
 			if (mString[index] != rhs.mString[index])
 				return false;
@@ -275,9 +279,19 @@ namespace assignment1
 
 	void MyString::ToLower()
 	{
+		for (unsigned int index = 0; index < mStringLen; index++)
+		{
+			if (mString[index] >= 'A' && mString[index] <= 'Z')
+				mString[index] += 32;
+		}
 	}
 
 	void MyString::ToUpper()
 	{
+		for (unsigned int index = 0; index < mStringLen; index++)
+		{
+			if (mString[index] >= 'a' && mString[index] <= 'z')
+				mString[index] -= 32;
+		}
 	}
 }

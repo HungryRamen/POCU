@@ -33,15 +33,16 @@ int main()
 	//cout << s2.GetCString() << endl;  // Hello
 	//
 	///* Append() Ex */
-	//cout << "-----------------------" << endl;
-	//cout << "Append()" << endl;
-	//MyString s3("Hello");
-	//s3.Append(" World");
-	//cout << s3.GetCString() << endl;  // Hello World
-	//s3.Append("\n\tWorld\n");
-	//cout << s3.GetCString() << endl;
-	//MyString s4("");
-	//s4.Append("");
+	cout << "-----------------------" << endl;
+	cout << "Append()" << endl;
+	MyString s3("Hello");
+	s3.Append(" World");
+	cout << s3.GetCString() << endl;  // Hello World
+	s3.Append("\n\tWorld\n");
+	cout << s3.GetCString() << endl;
+	MyString s4("");
+	s4.Append("");
+	s4.Append(nullptr);
 	
 	///* operator+ Ex */
 	//cout << "-----------------------" << endl;
@@ -167,19 +168,19 @@ int main()
 	//cout << s114.GetCString() << endl;
 	
 	///* operator== Ex */
-	cout << "-----------------------" << endl;
-	cout << "operator==" << endl;
-	MyString s121("Hello");
-	MyString s122("Hello");
-	MyString s123("World");
-	MyString s124("Hello ");
-	MyString s125(" ");
-	MyString s126(nullptr);
-	cout << boolalpha << (s125 == s126) << endl;
-	cout << boolalpha << (s121 == s122) << endl;   // true
-	cout << boolalpha << (s121 == s121) << endl;   // true
-	cout << boolalpha << (s121 == s123) << endl;   // false
-	cout << boolalpha << (s121 == s124) << endl;   // false
+	//cout << "-----------------------" << endl;
+	//cout << "operator==" << endl;
+	//MyString s121("Hello");
+	//MyString s122("Hello");
+	//MyString s123("World");
+	//MyString s124("Hello ");
+	//MyString s125(" ");
+	//MyString s126(nullptr);
+	//cout << boolalpha << (s125 == s126) << endl;
+	//cout << boolalpha << (s121 == s122) << endl;   // true
+	//cout << boolalpha << (s121 == s121) << endl;   // true
+	//cout << boolalpha << (s121 == s123) << endl;   // false
+	//cout << boolalpha << (s121 == s124) << endl;   // false
 	
 	///* ToLower() Ex */
 	//cout << "-----------------------" << endl;
@@ -187,8 +188,8 @@ int main()
 	//MyString s13("HEllo 123K");
 	//s13.ToLower();   // "hello 123k"
 	//cout << s13.GetCString() << endl;
-	//
-	///* ToUpper() Ex */
+	
+	/* ToUpper() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "ToUpper()" << endl;
 	//MyString s14("HEllo 123K");
