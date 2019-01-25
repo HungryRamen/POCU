@@ -98,7 +98,27 @@ namespace assignment1
 
 	int MyString::LastIndexOf(const char* s)
 	{
-		return 0;
+		int index = mStringLen - 1;
+		if (s == "")
+			return index;
+		int stringLen = StrLen(s);
+		int count = 0;
+		while (index >= 0)
+		{
+			for (count = 0; count < stringLen; count++)
+			{
+				if (mString[index - count] != s[stringLen - count - 1])
+				{
+					break;
+				}
+			}
+			if (count >= stringLen)
+			{
+				return index - count + 1;
+			}
+			index--;
+		}
+		return -1;
 	}
 
 	void MyString::Interleave(const char* s)
