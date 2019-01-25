@@ -165,19 +165,22 @@ int main()
 	//MyString s114("");
 	//s114.Reverse();   // 
 	//cout << s114.GetCString() << endl;
-	//
+	
 	///* operator== Ex */
-	//cout << "-----------------------" << endl;
-	//cout << "operator==" << endl;
-	//MyString s121("Hello");
-	//MyString s122("Hello");
-	//MyString s123("World");
-	//MyString s124("Hello ");
-	//
-	//cout << boolalpha << (s121 == s122) << endl;   // true
-	//cout << boolalpha << (s121 == s123) << endl;   // false
-	//cout << boolalpha << (s121 == s124) << endl;   // false
-	//
+	cout << "-----------------------" << endl;
+	cout << "operator==" << endl;
+	MyString s121("Hello");
+	MyString s122("Hello");
+	MyString s123("World");
+	MyString s124("Hello ");
+	MyString s125(" ");
+	MyString s126(nullptr);
+	cout << boolalpha << (s125 == s126) << endl;
+	cout << boolalpha << (s121 == s122) << endl;   // true
+	cout << boolalpha << (s121 == s121) << endl;   // true
+	cout << boolalpha << (s121 == s123) << endl;   // false
+	cout << boolalpha << (s121 == s124) << endl;   // false
+	
 	///* ToLower() Ex */
 	//cout << "-----------------------" << endl;
 	//cout << "ToLower()" << endl;

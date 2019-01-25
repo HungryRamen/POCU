@@ -247,11 +247,30 @@ namespace assignment1
 
 	void MyString::Reverse()
 	{
+		char* front = mString;
+		char* back = mString + (mStringLen - 2);
+		while (front < back)
+		{
+			char temp = *front;
+			*front = *back;
+			*back = temp;
+			front++;
+			back--;
+		}
 	}
 
 	bool MyString::operator==(const MyString& rhs) const
 	{
-		return false;
+		if (mStringLen != rhs.mStringLen)
+		{
+			return false;
+		}
+		for (int index = 0; index < mStringLen; index++)
+		{
+			if (mString[index] != rhs.mString[index])
+				return false;
+		}
+		return true;
 	}
 
 	void MyString::ToLower()
