@@ -55,7 +55,7 @@ namespace assignment1
 	void MyString::Append(const char* s)
 	{
 		int stringLen = mStringLen + StrLen(s);
-		if (stringLen == 0)
+		if (stringLen == 0 || s == "")
 			return;
 		char* stringSum = new char[stringLen];
 		MemCpy(stringSum, mString, mStringLen - 1);
