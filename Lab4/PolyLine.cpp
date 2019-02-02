@@ -14,7 +14,7 @@ namespace lab4
 	{
 		for (unsigned int index = 0; index < other.mSize; index++)
 		{
-			mPoint[index] = other.mPoint[index];
+			AddPoint(other.mPoint[index]->GetX(), other.mPoint[index]->GetY());
 		}
 	}
 
@@ -79,7 +79,7 @@ namespace lab4
 			{
 				outMin->SetX(mPoint[index]->GetX());
 			}
-			if(outMin->GetY() > mPoint[index]->GetY())
+			if (outMin->GetY() > mPoint[index]->GetY())
 			{
 				outMin->SetY(mPoint[index]->GetY());
 			}

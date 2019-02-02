@@ -36,11 +36,11 @@ namespace lab4
 
 	float Point::Dot(const Point& other) const
 	{
-		float X = mX;
-		float Y = mY;
-		X *= other.GetX();
-		Y *= other.GetY();
-		return X + Y;
+		float x = mX;
+		float y = mY;
+		x *= other.GetX();
+		y *= other.GetY();
+		return x + y;
 	}
 
 	Point Point::operator*(float operand) const
