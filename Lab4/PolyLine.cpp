@@ -10,7 +10,7 @@ namespace lab4
 	}
 
 	PolyLine::PolyLine(const PolyLine& other):
-		mSize(other.mSize)
+		mSize(0)
 	{
 		for (unsigned int index = 0; index < other.mSize; index++)
 		{
