@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Lawn.h"
-#include "eFenceType.h"
+#include "IFenceable.h"
 
 namespace lab5
 {
-	class EquilateralTriangleLawn : public Lawn
+	class EquilateralTriangleLawn : public Lawn, public IFenceable
 	{
 	public:
 		EquilateralTriangleLawn(unsigned int width);
