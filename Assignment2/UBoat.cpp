@@ -36,12 +36,12 @@ namespace assignment2
 
 	unsigned int UBoat::GetSailSpeed()
 	{
-		int temp = MyMath::Round(550 - GetPassengersTotalWeight() / 10.f);
+		int temp = mymath::Round(550 - GetPassengersTotalWeight() / 10.f);
 		return temp > 200 ? static_cast<unsigned int>(temp) : 200;
 	}
 
 	unsigned int UBoat::GetDiveSpeed()
 	{
-		return static_cast<unsigned int>(MyMath::Round(500 * MyMath::Log((GetPassengersTotalWeight() + 150) / 150.f) + 30));
+		return static_cast<unsigned int>(mymath::Round(500 * mymath::Log((GetPassengersTotalWeight() + 150) / 150.f) + 30));
 	}
 }

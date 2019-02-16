@@ -53,13 +53,13 @@ namespace assignment2
 
 	unsigned int Boatplane::GetFlySpeed()
 	{
-		unsigned int temp = static_cast<unsigned int>(MyMath::Round(150 * MyMath::Power(MyMath::EULER_NUM, ((-GetPassengersTotalWeight() + 500) / 300.f))));
+		unsigned int temp = static_cast<unsigned int>(mymath::Round(150 * mymath::Power(mymath::EULER_NUM, ((-GetPassengersTotalWeight() + 500) / 300.f))));
 		return temp;
 	}
 
 	unsigned int Boatplane::GetSailSpeed()
 	{
-		int temp = MyMath::Round(800 - 1.7f * GetPassengersTotalWeight());
+		int temp = mymath::Round(800 - 1.7f * GetPassengersTotalWeight());
 		return temp > 20 ? static_cast<unsigned int>(temp) : 20;
 	}
 

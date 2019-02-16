@@ -1,6 +1,6 @@
 #pragma once
 
-namespace MyMath
+namespace mymath
 {
 	const float EULER_NUM = 2.71828182846f;
 

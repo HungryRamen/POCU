@@ -1,6 +1,6 @@
 #include <math.h>
 #include "MyMath.h"
-namespace MyMath
+namespace mymath
 {
 	int Ceil(float value)
 	{

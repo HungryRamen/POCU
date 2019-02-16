@@ -36,7 +36,7 @@ namespace assignment2
 
 	unsigned int Motorcycle::GetDriveSpeed()
 	{
-		int temp = MyMath::Round(MyMath::Power(-(GetPassengersTotalWeight() / 15.f), 3.f) + 2 * GetPassengersTotalWeight() + 400);
+		int temp = mymath::Round(mymath::Power(-(GetPassengersTotalWeight() / 15.f), 3.f) + 2 * GetPassengersTotalWeight() + 400);
 		return temp > 0 ? static_cast<unsigned int>(temp) : 0;
 	}
 }

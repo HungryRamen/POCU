@@ -38,13 +38,13 @@ namespace assignment2
 
 	unsigned int Airplane::GetDriveSpeed()
 	{
-		unsigned int temp = static_cast<unsigned int>(MyMath::Round(4 * MyMath::Power(MyMath::EULER_NUM, ((-GetPassengersTotalWeight() + 400) / 70.f))));
+		unsigned int temp = static_cast<unsigned int>(mymath::Round(4 * mymath::Power(mymath::EULER_NUM, ((-GetPassengersTotalWeight() + 400) / 70.f))));
 		return temp;
 	}
 
 	unsigned int Airplane::GetFlySpeed()
 	{
-		unsigned int temp = static_cast<unsigned int>(MyMath::Round(200 * MyMath::Power(MyMath::EULER_NUM, ((-GetPassengersTotalWeight() + 800) / 500.f))));
+		unsigned int temp = static_cast<unsigned int>(mymath::Round(200 * mymath::Power(mymath::EULER_NUM, ((-GetPassengersTotalWeight() + 800) / 500.f))));
 		return temp;
 	}
 

@@ -7,7 +7,7 @@ namespace assignment2
 {
 	class Airplane;
 
-	class Boat :public Vehicle, public ISailable
+	class Boat : public Vehicle, public ISailable
 	{
 	public:
 		Boat(unsigned int maxPassengersCount);
