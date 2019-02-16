@@ -27,7 +27,7 @@ namespace lab6
 
 	int Max(const std::vector<int>& v)
 	{
-		int max = -2147483647;
+		int max = -2147483647 - 1;
 		for (unsigned int index = 0; index < v.size(); index++)
 		{
 			if (max < v[index])
@@ -40,6 +40,8 @@ namespace lab6
 
 	float Average(const std::vector<int>& v)
 	{
+		if (v.empty())
+			return 0.f;
 		int sum = Sum(v);
 		float size = static_cast<float>(v.size());
 		return sum / size;
@@ -70,16 +72,16 @@ namespace lab6
 			number[numberCount++].NumCount++;
 		}
 
-		Number Maxnumber = number[0];
+		Number maxNumber = number[0];
 		for (int index = 1; index < numberCount; index++)
 		{
-			if (Maxnumber.NumCount < number[index].NumCount)
+			if (maxNumber.NumCount < number[index].NumCount)
 			{
-				Maxnumber = number[index];
+				maxNumber = number[index];
 			}
 		}
 		delete[] number;
-		return Maxnumber.Num;
+		return maxNumber.Num;
 	}
 
 	void SortDescending(std::vector<int>& v)
