@@ -3,14 +3,13 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include "Min.h"
 namespace lab7
 {
 	template <typename K, class V>
 	std::map<K, V> ConvertVectorsToMap(const std::vector<K>& keys, const std::vector<V>& values)
 	{
 		std::map<K, V> m;
-		int len = Min::Min(keys.size(), values.size());
+		int len = keys.size() < values.size() ? static_cast<int>(keys.size()) : static_cast<int>(values.size());
 		for (int index = 0; index < len; index++)
 		{
 			m.insert(std::make_pair(keys[index], values[index]));
