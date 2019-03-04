@@ -23,5 +23,8 @@
     <ClInclude Include="Lab7.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Min.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

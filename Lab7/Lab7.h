@@ -3,20 +3,14 @@
 #include <iostream>
 #include <vector>
 #include <map>
-
+#include "Min.h"
 namespace lab7
 {
-	int Min(long size1, long size2)
-	{
-		if (size1 > size2)
-			return static_cast<int>(size2);
-		return static_cast<int>(size1);
-	}
 	template <typename K, class V>
 	std::map<K, V> ConvertVectorsToMap(const std::vector<K>& keys, const std::vector<V>& values)
 	{
 		std::map<K, V> m;
-		int len = Min(keys.size(), values.size());
+		int len = Min::Min(keys.size(), values.size());
 		for (int index = 0; index < len; index++)
 		{
 			m.insert(std::make_pair(keys[index], values[index]));
@@ -79,7 +73,7 @@ std::vector<T> operator+(const std::vector<T>& v1, const std::vector<T>& v2)
 			if (combined[index2] == v2[index])
 				break;
 		}
-		if(index2 == static_cast<int>(combined.size()))
+		if (index2 == static_cast<int>(combined.size()))
 			combined.push_back(v2[index]);
 	}
 	return combined;
