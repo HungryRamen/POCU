@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include "SmartStack.h"
-//#include "SmartQueue.h"
+#include "SmartQueue.h"
 //#include "QueueStack.h"
 
 void SmartStackTest()
@@ -102,91 +102,91 @@ void SmartStackTest()
 
 void SmartQueueTest()
 {
-	//const double EPSILON = std::numeric_limits<double>::min();
-	//
-	//// {}
-	//assignment3::SmartQueue<double> smartQueue;
-	//assert(smartQueue.Count() == 0);
-	//assert(smartQueue.Max() == std::numeric_limits<double>::lowest());
-	//assert(smartQueue.Min() == std::numeric_limits<double>::max());
-	//
-	//// {20.2, -11.0, 10.1, -5.5, 10.1, -5.5}
-	//smartQueue.Enqueue(20.2);
-	//smartQueue.Enqueue(-11.0);
-	//smartQueue.Enqueue(10.1);
-	//smartQueue.Enqueue(-5.5);
-	//smartQueue.Enqueue(10.1);
-	//smartQueue.Enqueue(-5.5);
-	//assert(smartQueue.Peek() == 20.2);
-	//assert(smartQueue.Count() == 6);
-	//assert(smartQueue.Max() == 20.2);
-	//assert(smartQueue.Min() == -11.0);
-	//assert(smartQueue.Sum() == 18.4);
-	//assert(smartQueue.Average() == 3.067);
-	//assert(smartQueue.Variance() == 122.856);
-	//assert(smartQueue.StandardDeviation() == 11.084);
-	//
-	//// {-11.0, 10.1, -5.5, 10.1, -5.5} 
-	//double dequeued = smartQueue.Dequeue();
-	//assert(dequeued == 20.2);
-	//assert(smartQueue.Count() == 5);
-	//assert(smartQueue.Max() == 10.1);
-	//assert(smartQueue.Min() == -11.0);
-	//assert((smartQueue.Sum() - (-1.8)) < EPSILON);
-	//assert(smartQueue.Average() == -0.36);
-	//assert(smartQueue.Variance() == 76.974);
-	//assert(smartQueue.StandardDeviation() == 8.774);
-	//
-	//// {10.1, -5.5, 10.1, -5.5} 
-	//dequeued = smartQueue.Dequeue();
-	//assert(dequeued == -11.0);
-	//assert(smartQueue.Count() == 4);
-	//assert(smartQueue.Max() == 10.1);
-	//assert(smartQueue.Min() == -5.5);
-	//assert(smartQueue.Sum() == 9.2);
-	//assert(smartQueue.Average() == 2.3);
-	//assert(smartQueue.Variance() == 60.84);
-	//assert(smartQueue.StandardDeviation() == 7.8);
-	//
-	//// {-5.5, 10.1, -5.5} 
-	//dequeued = smartQueue.Dequeue();
-	//assert(dequeued == 10.1);
-	//assert(smartQueue.Count() == 3);
-	//assert(smartQueue.Max() == 10.1);
-	//assert(smartQueue.Min() == -5.5);
-	//assert((smartQueue.Sum() - (-0.9)) < EPSILON);
-	//assert(smartQueue.Average() == -0.3);
-	//assert(smartQueue.Variance() == 54.08);
-	//assert(smartQueue.StandardDeviation() == 7.354);
-	//
-	//// {10.1, -5.5} 
-	//dequeued = smartQueue.Dequeue();
-	//assert(dequeued == -5.5);
-	//assert(smartQueue.Count() == 2);
-	//assert(smartQueue.Max() == 10.1);
-	//assert(smartQueue.Min() == -5.5);
-	//assert(smartQueue.Sum() == 4.6);
-	//assert(smartQueue.Average() == 2.3);
-	//assert(smartQueue.Variance() == 60.84);
-	//assert(smartQueue.StandardDeviation() == 7.8);
-	//
-	//// {-5.5} 
-	//dequeued = smartQueue.Dequeue();
-	//assert(dequeued == 10.1);
-	//assert(smartQueue.Count() == 1);
-	//assert(smartQueue.Max() == -5.5);
-	//assert(smartQueue.Min() == -5.5);
-	//assert(smartQueue.Sum() == -5.5);
-	//assert(smartQueue.Average() == -5.5);
-	//assert(smartQueue.Variance() == 0.0);
-	//assert(smartQueue.StandardDeviation() == 0.0);
-	//
-	//// {} 
-	//dequeued = smartQueue.Dequeue();
-	//assert(dequeued == -5.5);
-	//assert(smartQueue.Count() == 0);
-	//assert(smartQueue.Max() == std::numeric_limits<double>::lowest());
-	//assert(smartQueue.Min() == std::numeric_limits<double>::max());
+	const double EPSILON = std::numeric_limits<double>::min();
+	
+	// {}
+	assignment3::SmartQueue<double> smartQueue;
+	assert(smartQueue.Count() == 0);
+	assert(smartQueue.Max() == std::numeric_limits<double>::lowest());
+	assert(smartQueue.Min() == std::numeric_limits<double>::max());
+	
+	// {20.2, -11.0, 10.1, -5.5, 10.1, -5.5}
+	smartQueue.Enqueue(20.2);
+	smartQueue.Enqueue(-11.0);
+	smartQueue.Enqueue(10.1);
+	smartQueue.Enqueue(-5.5);
+	smartQueue.Enqueue(10.1);
+	smartQueue.Enqueue(-5.5);
+	assert(smartQueue.Peek() == 20.2);
+	assert(smartQueue.Count() == 6);
+	assert(smartQueue.Max() == 20.2);
+	assert(smartQueue.Min() == -11.0);
+	assert(smartQueue.Sum() == 18.4);
+	assert(smartQueue.Average() == 3.067);
+	assert(smartQueue.Variance() == 122.856);
+	assert(smartQueue.StandardDeviation() == 11.084);
+	
+	// {-11.0, 10.1, -5.5, 10.1, -5.5} 
+	double dequeued = smartQueue.Dequeue();
+	assert(dequeued == 20.2);
+	assert(smartQueue.Count() == 5);
+	assert(smartQueue.Max() == 10.1);
+	assert(smartQueue.Min() == -11.0);
+	assert((smartQueue.Sum() - (-1.8)) < EPSILON);
+	assert(smartQueue.Average() == -0.36);
+	assert(smartQueue.Variance() == 76.974);
+	assert(smartQueue.StandardDeviation() == 8.774);
+	
+	// {10.1, -5.5, 10.1, -5.5} 
+	dequeued = smartQueue.Dequeue();
+	assert(dequeued == -11.0);
+	assert(smartQueue.Count() == 4);
+	assert(smartQueue.Max() == 10.1);
+	assert(smartQueue.Min() == -5.5);
+	assert(smartQueue.Sum() == 9.2);
+	assert(smartQueue.Average() == 2.3);
+	assert(smartQueue.Variance() == 60.84);
+	assert(smartQueue.StandardDeviation() == 7.8);
+	
+	// {-5.5, 10.1, -5.5} 
+	dequeued = smartQueue.Dequeue();
+	assert(dequeued == 10.1);
+	assert(smartQueue.Count() == 3);
+	assert(smartQueue.Max() == 10.1);
+	assert(smartQueue.Min() == -5.5);
+	assert((smartQueue.Sum() - (-0.9)) < EPSILON);
+	assert(smartQueue.Average() == -0.3);
+	assert(smartQueue.Variance() == 54.08);
+	assert(smartQueue.StandardDeviation() == 7.354);
+	
+	// {10.1, -5.5} 
+	dequeued = smartQueue.Dequeue();
+	assert(dequeued == -5.5);
+	assert(smartQueue.Count() == 2);
+	assert(smartQueue.Max() == 10.1);
+	assert(smartQueue.Min() == -5.5);
+	assert(smartQueue.Sum() == 4.6);
+	assert(smartQueue.Average() == 2.3);
+	assert(smartQueue.Variance() == 60.84);
+	assert(smartQueue.StandardDeviation() == 7.8);
+	
+	// {-5.5} 
+	dequeued = smartQueue.Dequeue();
+	assert(dequeued == 10.1);
+	assert(smartQueue.Count() == 1);
+	assert(smartQueue.Max() == -5.5);
+	assert(smartQueue.Min() == -5.5);
+	assert(smartQueue.Sum() == -5.5);
+	assert(smartQueue.Average() == -5.5);
+	assert(smartQueue.Variance() == 0.0);
+	assert(smartQueue.StandardDeviation() == 0.0);
+	
+	// {} 
+	dequeued = smartQueue.Dequeue();
+	assert(dequeued == -5.5);
+	assert(smartQueue.Count() == 0);
+	assert(smartQueue.Max() == std::numeric_limits<double>::lowest());
+	assert(smartQueue.Min() == std::numeric_limits<double>::max());
 }
 
 void QueueStackTest()
@@ -304,35 +304,35 @@ void QueueStackTest()
 int main()
 {
 	SmartStackTest();
-	//SmartQueueTest();
+	SmartQueueTest();
 	//QueueStackTest();
-	//assignment3::SmartStack<float> ss;
- 	//ss.Push(3.4f);
-	//ss.Push(1.2f);
-	//ss.Push(4.6f);
-	//ss.Push(3.32f);
-	//ss.Push(10.2f);
-	//ss.Push(1.1f);
-	//ss.Push(-5.9f);
-	//ss.Push(1.1f);
-	//ss.Push(-12.4f);
-	//ss.Push(9.2f);
-	//
-	//assert(ss.Count() == 10U);
-	//assert(ss.Peek() == 9.2f);
-	//assert(ss.Max() == 10.2f);
-	//assert(ss.Min() == -12.4f);
-	//assert(ss.Sum() == 15.820f);
-	//assert(ss.Average() == 1.582);
-	//assert(ss.Variance() == 39.983);
-	//assert(ss.StandardDeviation() == 6.323);
-	//assert(ss.Peek() == 9.2f);
-	//
-	//float popped1 = ss.Pop();
-	//float popped2 = ss.Pop();
-	//
-	//assert(popped1 == 9.2f);
-	//assert(popped2 == -12.4f);
-	//
-	//return 0;
+	assignment3::SmartStack<float> ss;
+ 	ss.Push(3.4f);
+	ss.Push(1.2f);
+	ss.Push(4.6f);
+	ss.Push(3.32f);
+	ss.Push(10.2f);
+	ss.Push(1.1f);
+	ss.Push(-5.9f);
+	ss.Push(1.1f);
+	ss.Push(-12.4f);
+	ss.Push(9.2f);
+	
+	assert(ss.Count() == 10U);
+	assert(ss.Peek() == 9.2f);
+	assert(ss.Max() == 10.2f);
+	assert(ss.Min() == -12.4f);
+	assert(ss.Sum() == 15.820f);
+	assert(ss.Average() == 1.582);
+	assert(ss.Variance() == 39.983);
+	assert(ss.StandardDeviation() == 6.323);
+	assert(ss.Peek() == 9.2f);
+	
+	float popped1 = ss.Pop();
+	float popped2 = ss.Pop();
+	
+	assert(popped1 == 9.2f);
+	assert(popped2 == -12.4f);
+	
+	return 0;
 }
