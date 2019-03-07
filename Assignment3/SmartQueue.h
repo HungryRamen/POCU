@@ -109,14 +109,12 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Variance()
 	{
-		double queue = mQueueSum / mQueue.size();
-		return Round(mQueueSigma / mQueue.size() - queue * queue);
+		return Round(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2));
 	}
 	template<typename T>
 	inline double SmartQueue<T>::StandardDeviation()
 	{
-		double queue = mQueueSum / mQueue.size();
-		return Round(sqrt(mQueueSigma / mQueue.size() - queue * queue));
+		return Round(sqrt(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2)));
 	}
 	template<typename T>
 	inline unsigned int SmartQueue<T>::Count()
