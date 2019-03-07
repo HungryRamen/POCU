@@ -1,7 +1,6 @@
 #pragma once
 #include <queue>
 #include <stack>
-#include "MyMath.h"
 
 namespace assignment3
 {
@@ -20,6 +19,7 @@ namespace assignment3
 		double Average();
 		T Sum();
 		T RoundT(T value);
+		double Round(double value);
 		unsigned int Count();
 		unsigned int StackCount();
 
@@ -135,7 +135,7 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return mymath::Round(static_cast<double>(mQueueStackSum) / Count());
+		return Round(static_cast<double>(mQueueStackSum) / Count());
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
@@ -152,6 +152,17 @@ namespace assignment3
 			value2 = (static_cast<double>(value) + 0.0005) * 1000;
 		int value3 = static_cast<int>(value2);
 		return static_cast<T>(value3) / 1000;
+	}
+	template<typename T>
+	inline double QueueStack<T>::Round(double value)
+	{
+		double value2;
+		if (value < 0)
+			value2 = (static_cast<double>(value) - 0.0005) * 1000;
+		else
+			value2 = (static_cast<double>(value) + 0.0005) * 1000;
+		int value3 = static_cast<int>(value2);
+		return static_cast<double>(value3) / 1000;
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()

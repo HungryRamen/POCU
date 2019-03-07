@@ -1,6 +1,5 @@
 #pragma once
 #include <stack>
-#include "MyMath.h"
 namespace assignment3
 {
 	template<typename T>
@@ -18,6 +17,7 @@ namespace assignment3
 		double Average();
 		T Sum();
 		T RoundT(T value);
+		double Round(double value);
 		double Variance();
 		double StandardDeviation();
 		unsigned int Count();
@@ -48,6 +48,18 @@ namespace assignment3
 			value2 = (static_cast<double>(value) + 0.0005) * 1000;
 		int value3 = static_cast<int>(value2);
 		return static_cast<T>(value3) / 1000;
+	}
+
+	template<typename T>
+	inline double SmartStack<T>::Round(double value)
+	{
+		double value2;
+		if (value < 0)
+			value2 = (static_cast<double>(value) - 0.0005) * 1000;
+		else
+			value2 = (static_cast<double>(value) + 0.0005) * 1000;
+		int value3 = static_cast<int>(value2);
+		return static_cast<double>(value3) / 1000;
 	}
 
 	template<typename T>
@@ -97,7 +109,7 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Average()
 	{
-		return mymath::Round(static_cast<double>(mStackSum) / mStack.size());
+		return Round(static_cast<double>(mStackSum) / mStack.size());
 	}
 
 	template<typename T>
@@ -109,13 +121,13 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Variance()
 	{
-		return mymath::Round(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2));
+		return Round(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2));
 	}
 
 	template<typename T>
 	inline double SmartStack<T>::StandardDeviation()
 	{
-		return mymath::Round(sqrt(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2)));
+		return Round(sqrt(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2)));
 	}
 
 	template<typename T>

@@ -1,6 +1,5 @@
 #pragma once
 #include <queue>
-#include "MyMath.h"
 namespace assignment3
 {
 	template<typename T>
@@ -17,6 +16,7 @@ namespace assignment3
 		double Average();
 		T Sum();
 		T RoundT(T value);
+		double Round(double value);
 		double Variance();
 		double StandardDeviation();
 		unsigned int Count();
@@ -45,6 +45,17 @@ namespace assignment3
 			value2 = (static_cast<double>(value) + 0.0005) * 1000;
 		int value3 = static_cast<int>(value2);
 		return static_cast<T>(value3) / 1000;
+	}
+	template<typename T>
+	inline double SmartQueue<T>::Round(double value)
+	{
+		double value2;
+		if (value < 0)
+			value2 = (static_cast<double>(value) - 0.0005) * 1000;
+		else
+			value2 = (static_cast<double>(value) + 0.0005) * 1000;
+		int value3 = static_cast<int>(value2);
+		return static_cast<double>(value3) / 1000;
 	}
 	template<typename T>
 	inline void SmartQueue<T>::Enqueue(T value)
@@ -100,7 +111,7 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Average()
 	{
-		return mymath::Round(static_cast<double>(mQueueSum) / mQueue.size());
+		return Round(static_cast<double>(mQueueSum) / mQueue.size());
 	}
 	template<typename T>
 	inline T SmartQueue<T>::Sum()
@@ -110,12 +121,12 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Variance()
 	{
-		return mymath::Round(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2));
+		return Round(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2));
 	}
 	template<typename T>
 	inline double SmartQueue<T>::StandardDeviation()
 	{
-		return mymath::Round(sqrt(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2)));
+		return Round(sqrt(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2)));
 	}
 	template<typename T>
 	inline unsigned int SmartQueue<T>::Count()
