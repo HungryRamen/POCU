@@ -211,7 +211,6 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		double b = Round(static_cast<double>(mQueueStackSum) / Count());
 		return Round(static_cast<double>(mQueueStackSum) / Count());
 	}
 	template<typename T>
@@ -222,24 +221,12 @@ namespace assignment3
 	template<typename T>
 	inline T QueueStack<T>::RoundT(T value)
 	{
-		double value2;
-		if (value < 0)
-			value2 = (static_cast<double>(value) - 0.0005) * 1000;
-		else
-			value2 = (static_cast<double>(value) + 0.0005) * 1000;
-		int value3 = static_cast<int>(value2);
-		return static_cast<T>(value3) / 1000;
+		return static_cast<T>(floor(value * pow(10.0, 3) + 0.5) / pow(10.0, 3));
 	}
 	template<typename T>
 	inline double QueueStack<T>::Round(double value)
 	{
-		double value2;
-		if (value < 0)
-			value2 = (static_cast<double>(value) - 0.0005) * 1000;
-		else
-			value2 = (static_cast<double>(value) + 0.0005) * 1000;
-		int value3 = static_cast<int>(value2);
-		return static_cast<double>(value3) / 1000;
+		return floor(value * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()
