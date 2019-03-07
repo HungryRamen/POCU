@@ -25,7 +25,6 @@ namespace assignment3
 
 	private:
 		std::queue<std::stack<T>*> mQueueStack;
-		std::stack<T>* mStack;
 		T mQueueStackSum;
 		unsigned int mCount;
 		unsigned int mStackCount;
@@ -33,72 +32,90 @@ namespace assignment3
 	};
 	template<typename T>
 	inline QueueStack<T>::QueueStack(unsigned int maxStackSize) :
+		mCount(0),
 		mStackCount(0),
-		mMaxStackSize(maxStackSize),
-		mStack(nullptr)
+		mMaxStackSize(maxStackSize)
 	{
+		std::stack<T>* stack = new std::stack<T>();
+		mQueueStack.push(stack);
 	}
 	template<typename T>
 	inline QueueStack<T>::~QueueStack()
 	{
 		while (!mQueueStack.empty())
 		{
-			mStack = mQueueStack.front();
-			delete mStack;
+			std::stack<T>* stack = mQueueStack.front();
+			delete stack;
 			mQueueStack.pop();
 		}
 	}
 	template<typename T>
 	inline void QueueStack<T>::Enqueue(T value)
 	{
-		if (mStack == nullptr)
+		//if (mStack == nullptr)
+		//{
+		//	std::stack<T>* stack = new std::stack<T>();
+		//	mStack = stack;
+		//	mStackCount++;
+		//}
+		//mStack->push(value);
+		//mQueueStackSum += value;
+		//mCount++;
+		//if (mStack->size() >= mMaxStackSize)
+		//{
+		//	mQueueStack.push(mStack);
+		//	mStack = nullptr;
+		//}
+		std::stack<T>* stack = mQueueStack.back();
+		mQueueStackSum += value;
+		if (stack->size() >= mMaxStackSize)
 		{
-			std::stack<T>* stack = new std::stack<T>();
-			mStack = stack;
+			std::stack<T>* stack2 = new std::stack<T>();
+			stack2->push(value);
+			mQueueStack.push(stack2);
 			mStackCount++;
 		}
-		mStack->push(value);
-		mQueueStackSum += value;
-		mCount++;
-		if (mStack->size() >= mMaxStackSize)
+		else
 		{
-			mQueueStack.push(mStack);
-			mStack = nullptr;
+			if (mStackCount == 0)
+				mStackCount++;
+			stack->push(value);
 		}
+		mCount++;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Peek()
 	{
-		if (mQueueStack.empty())
-		{
-			if (!mStack->empty())
-			{
-				return mStack->top();
-			}
-		}
+		//if (mQueueStack.empty())
+		//{
+		//	if (!mStack->empty())
+		//	{
+		//		return mStack->top();
+		//	}
+		//}
 		std::stack<T>* stack = mQueueStack.front();
 		return stack->top();
 	}
 	template<typename T>
 	inline T QueueStack<T>::Dequeue()
 	{
-		if (mQueueStack.empty())
-		{
-			if (!mStack->empty())
-			{
-				T value = mStack->top();
-				mStack->pop();
-				mQueueStackSum -= value;
-				mCount--;
-				if (mStack->empty())
-				{
-					delete mStack;
-					mStack = nullptr;
-					mStackCount--;
-				}
-				return value;
-			}
-		}
+		//if (mQueueStack.empty())
+		//{
+		//	if (!mStack->empty())
+		//	{
+		//		T value = mStack->top();
+		//		mStack->pop();
+		//		mQueueStackSum -= value;
+		//		mCount--;
+		//		if (mStack->empty())
+		//		{
+		//			delete mStack;
+		//			mStack = nullptr;
+		//			mStackCount--;
+		//		}
+		//		return value;
+		//	}
+		//}
 		std::stack<T>* stack = mQueueStack.front();
 		T value = stack->top();
 		mQueueStackSum -= value;
@@ -116,7 +133,7 @@ namespace assignment3
 	inline T QueueStack<T>::Max()
 	{
 		T max = std::numeric_limits<T>::lowest();
-		if (mQueueStack.empty() && mStack == nullptr)
+		if (mCount == 0)
 			return max;
 		std::queue<std::stack<T>*> queuestack;
 		std::stack<T>* stack;
@@ -124,6 +141,7 @@ namespace assignment3
 		while (!mQueueStack.empty())
 		{
 			stack = mQueueStack.front();
+			mQueueStack.pop();
 			while (!stack->empty())
 			{
 				if (max < stack->top())
@@ -141,30 +159,15 @@ namespace assignment3
 				stack2.pop();
 			}
 			queuestack.push(stack);
-			mQueueStack.pop();
 		}
 		mQueueStack = queuestack;
-		while (!mStack->empty())
-		{
-			if (max < mStack->top())
-			{
-				max = mStack->top();
-			}
-			stack2.push(mStack->top());
-			mStack->pop();
-		}
-		while (!stack2.empty())
-		{
-			mStack->push(stack2.top());
-			stack2.pop();
-		}
 		return max;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Min()
 	{
 		T min = std::numeric_limits<T>::max();
-		if (mQueueStack.empty() && mStack == nullptr)
+		if (mCount == 0)
 			return min;
 		std::queue<std::stack<T>*> queuestack;
 		std::stack<T>* stack;
@@ -172,6 +175,7 @@ namespace assignment3
 		while (!mQueueStack.empty())
 		{
 			stack = mQueueStack.front();
+			mQueueStack.pop();
 			while (!stack->empty())
 			{
 				if (min > stack->top())
@@ -189,23 +193,8 @@ namespace assignment3
 				stack2.pop();
 			}
 			queuestack.push(stack);
-			mQueueStack.pop();
 		}
 		mQueueStack = queuestack;
-		while (!mStack->empty())
-		{
-			if (min > mStack->top())
-			{
-				min = mStack->top();
-			}
-			stack2.push(mStack->top());
-			mStack->pop();
-		}
-		while (!stack2.empty())
-		{
-			mStack->push(stack2.top());
-			stack2.pop();
-		}
 		return min;
 	}
 	template<typename T>
