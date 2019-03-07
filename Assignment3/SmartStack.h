@@ -27,12 +27,10 @@ namespace assignment3
 		std::stack<T> mStackMin;
 		T mStackSum;
 		T mStackSigma;
-		double mStackSigmaD;
 	};
 	template<typename T> inline SmartStack<T>::SmartStack() :
 		mStackSum(0),
-		mStackSigma(0),
-		mStackSigmaD(0)
+		mStackSigma(0)
 	{
 		mStackMin.push(std::numeric_limits<T>::max());
 		mStackMax.push(std::numeric_limits<T>::lowest());
@@ -62,7 +60,6 @@ namespace assignment3
 		if (mStackMin.top() >= value)
 			mStackMin.push(value);
 		mStack.push(value);
-		mStackSigmaD = mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2);
 	}
 
 	template<typename T>
@@ -76,7 +73,6 @@ namespace assignment3
 		if (value == mStackMin.top())
 			mStackMin.pop();
 		mStack.pop();
-		mStackSigmaD = mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2);
 		return value;
 	}
 
@@ -113,13 +109,13 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Variance()
 	{
-		return Round(mStackSigmaD);
+		return Round(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2));
 	}
 
 	template<typename T>
 	inline double SmartStack<T>::StandardDeviation()
 	{
-		return Round(sqrt(mStackSigmaD));
+		return Round(sqrt(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2)));
 	}
 
 	template<typename T>
