@@ -2,7 +2,7 @@
 #include <iostream>
 #include "SmartStack.h"
 #include "SmartQueue.h"
-//#include "QueueStack.h"
+#include "QueueStack.h"
 
 void SmartStackTest()
 {
@@ -191,121 +191,121 @@ void SmartQueueTest()
 
 void QueueStackTest()
 {
-	//// {}
-	//assignment3::QueueStack<int> queueStack(3);
-	//assert(queueStack.Count() == 0);
-	//assert(queueStack.StackCount() == 0);
-	//assert(queueStack.Max() == std::numeric_limits<int>::lowest());
-	//assert(queueStack.Min() == std::numeric_limits<int>::max());
-	//
-	//// { {20, -15, 10}, {-5, 20, -15}, {10, -5} }
-	//queueStack.Enqueue(20);
-	//queueStack.Enqueue(-15);
-	//queueStack.Enqueue(10);
-	//queueStack.Enqueue(-5);
-	//queueStack.Enqueue(20);
-	//queueStack.Enqueue(-15);
-	//queueStack.Enqueue(10);
-	//queueStack.Enqueue(-5);
-	//assert(queueStack.Peek() == 10);
-	//assert(queueStack.Count() == 8);
-	//assert(queueStack.StackCount() == 3);
-	//assert(queueStack.Max() == 20);
-	//assert(queueStack.Min() == -15);
-	//assert(queueStack.Sum() == 20);
-	//assert(queueStack.Average() == 2.5);
-	//
-	//// { {20, -15}, {-5, 20, -15}, {10, -5} }
-	//int dequeued = queueStack.Dequeue();
-	//assert(dequeued = 10);
-	//assert(queueStack.Peek() == -15);
-	//assert(queueStack.Count() == 7);
-	//assert(queueStack.StackCount() == 3);
-	//assert(queueStack.Max() == 20);
-	//assert(queueStack.Min() == -15);
-	//assert(queueStack.Sum() == 10);
-	//assert(queueStack.Average() == 1.429);
-	//
-	//// { {20}, {-5, 20, -15}, {10, -5} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = -15);
-	//assert(queueStack.Peek() == 20);
-	//assert(queueStack.Count() == 6);
-	//assert(queueStack.StackCount() == 3);
-	//assert(queueStack.Max() == 20);
-	//assert(queueStack.Min() == -15);
-	//assert(queueStack.Sum() == 25);
-	//assert(queueStack.Average() == 4.167);
-	//
-	//// { {-5, 20, -15}, {10, -5} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = 20);
-	//assert(queueStack.Peek() == -15);
-	//assert(queueStack.Count() == 5);
-	//assert(queueStack.StackCount() == 2);
-	//assert(queueStack.Max() == 20);
-	//assert(queueStack.Min() == -15);
-	//assert(queueStack.Sum() == 5);
-	//assert(queueStack.Average() == 1.0);
-	//
-	//// { {-5, 20}, {10, -5} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = -15);
-	//assert(queueStack.Peek() == 20);
-	//assert(queueStack.Count() == 4);
-	//assert(queueStack.StackCount() == 2);
-	//assert(queueStack.Max() == 20);
-	//assert(queueStack.Min() == -5);
-	//assert(queueStack.Sum() == 20);
-	//assert(queueStack.Average() == 5.0);
-	//
-	//// { {-5}, {10, -5} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = 20);
-	//assert(queueStack.Peek() == -5);
-	//assert(queueStack.Count() == 3);
-	//assert(queueStack.StackCount() == 2);
-	//assert(queueStack.Max() == 10);
-	//assert(queueStack.Min() == -5);
-	//assert(queueStack.Sum() == 0);
-	//assert(queueStack.Average() == 0.0);
-	//
-	//// { {10, -5} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = -5);
-	//assert(queueStack.Peek() == -5);
-	//assert(queueStack.Count() == 2);
-	//assert(queueStack.StackCount() == 1);
-	//assert(queueStack.Max() == 10);
-	//assert(queueStack.Min() == -5);
-	//assert(queueStack.Sum() == 5);
-	//assert(queueStack.Average() == 2.5);
-	//
-	//// { {10} }
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = -5);
-	//assert(queueStack.Peek() == 10);
-	//assert(queueStack.Count() == 1);
-	//assert(queueStack.StackCount() == 1);
-	//assert(queueStack.Max() == 10);
-	//assert(queueStack.Min() == 10);
-	//assert(queueStack.Sum() == 10);
-	//assert(queueStack.Average() == 10.0);
-	//
-	//// {}
-	//dequeued = queueStack.Dequeue();
-	//assert(dequeued = 10);
-	//assert(queueStack.Count() == 0);
-	//assert(queueStack.StackCount() == 0);
-	//assert(queueStack.Max() == std::numeric_limits<int>::lowest());
-	//assert(queueStack.Min() == std::numeric_limits<int>::max());
+	// {}
+	assignment3::QueueStack<int> queueStack(3);
+	assert(queueStack.Count() == 0);
+	assert(queueStack.StackCount() == 0);
+	assert(queueStack.Max() == std::numeric_limits<int>::lowest());
+	assert(queueStack.Min() == std::numeric_limits<int>::max());
+	
+	// { {20, -15, 10}, {-5, 20, -15}, {10, -5} }
+	queueStack.Enqueue(20);
+	queueStack.Enqueue(-15);
+	queueStack.Enqueue(10);
+	queueStack.Enqueue(-5);
+	queueStack.Enqueue(20);
+	queueStack.Enqueue(-15);
+	queueStack.Enqueue(10);
+	queueStack.Enqueue(-5);
+	assert(queueStack.Peek() == 10);
+	assert(queueStack.Count() == 8);
+	assert(queueStack.StackCount() == 3);
+	assert(queueStack.Max() == 20);
+	assert(queueStack.Min() == -15);
+	assert(queueStack.Sum() == 20);
+	assert(queueStack.Average() == 2.5);
+	
+	// { {20, -15}, {-5, 20, -15}, {10, -5} }
+	int dequeued = queueStack.Dequeue();
+	assert(dequeued = 10);
+	assert(queueStack.Peek() == -15);
+	assert(queueStack.Count() == 7);
+	assert(queueStack.StackCount() == 3);
+	assert(queueStack.Max() == 20);
+	assert(queueStack.Min() == -15);
+	assert(queueStack.Sum() == 10);
+	assert(queueStack.Average() == 1.429);
+	
+	// { {20}, {-5, 20, -15}, {10, -5} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = -15);
+	assert(queueStack.Peek() == 20);
+	assert(queueStack.Count() == 6);
+	assert(queueStack.StackCount() == 3);
+	assert(queueStack.Max() == 20);
+	assert(queueStack.Min() == -15);
+	assert(queueStack.Sum() == 25);
+	assert(queueStack.Average() == 4.167);
+	
+	// { {-5, 20, -15}, {10, -5} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = 20);
+	assert(queueStack.Peek() == -15);
+	assert(queueStack.Count() == 5);
+	assert(queueStack.StackCount() == 2);
+	assert(queueStack.Max() == 20);
+	assert(queueStack.Min() == -15);
+	assert(queueStack.Sum() == 5);
+	assert(queueStack.Average() == 1.0);
+	
+	// { {-5, 20}, {10, -5} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = -15);
+	assert(queueStack.Peek() == 20);
+	assert(queueStack.Count() == 4);
+	assert(queueStack.StackCount() == 2);
+	assert(queueStack.Max() == 20);
+	assert(queueStack.Min() == -5);
+	assert(queueStack.Sum() == 20);
+	assert(queueStack.Average() == 5.0);
+	
+	// { {-5}, {10, -5} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = 20);
+	assert(queueStack.Peek() == -5);
+	assert(queueStack.Count() == 3);
+	assert(queueStack.StackCount() == 2);
+	assert(queueStack.Max() == 10);
+	assert(queueStack.Min() == -5);
+	assert(queueStack.Sum() == 0);
+	assert(queueStack.Average() == 0.0);
+	
+	// { {10, -5} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = -5);
+	assert(queueStack.Peek() == -5);
+	assert(queueStack.Count() == 2);
+	assert(queueStack.StackCount() == 1);
+	assert(queueStack.Max() == 10);
+	assert(queueStack.Min() == -5);
+	assert(queueStack.Sum() == 5);
+	assert(queueStack.Average() == 2.5);
+	
+	// { {10} }
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = -5);
+	assert(queueStack.Peek() == 10);
+	assert(queueStack.Count() == 1);
+	assert(queueStack.StackCount() == 1);
+	assert(queueStack.Max() == 10);
+	assert(queueStack.Min() == 10);
+	assert(queueStack.Sum() == 10);
+	assert(queueStack.Average() == 10.0);
+	
+	// {}
+	dequeued = queueStack.Dequeue();
+	assert(dequeued = 10);
+	assert(queueStack.Count() == 0);
+	assert(queueStack.StackCount() == 0);
+	assert(queueStack.Max() == std::numeric_limits<int>::lowest());
+	assert(queueStack.Min() == std::numeric_limits<int>::max());
 }
 
 int main()
 {
 	SmartStackTest();
 	SmartQueueTest();
-	//QueueStackTest();
+	QueueStackTest();
 	assignment3::SmartStack<float> ss;
  	ss.Push(3.4f);
 	ss.Push(1.2f);

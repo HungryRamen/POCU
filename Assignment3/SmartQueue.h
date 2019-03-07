@@ -100,8 +100,7 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Average()
 	{
-		double value = mymath::Round(mQueueSum / mQueue.size());
-		return mymath::Round(mQueueSum / mQueue.size());
+		return mymath::Round(static_cast<double>(mQueueSum) / mQueue.size());
 	}
 	template<typename T>
 	inline T SmartQueue<T>::Sum()
