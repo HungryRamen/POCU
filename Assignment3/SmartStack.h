@@ -16,7 +16,6 @@ namespace assignment3
 		T Min();
 		double Average();
 		T Sum();
-		T RoundT(T value);
 		double Round(double value);
 		double Variance();
 		double StandardDeviation();
@@ -37,11 +36,6 @@ namespace assignment3
 	}
 	template<typename T> inline SmartStack<T>::~SmartStack()
 	{
-	}
-	template<typename T>
-	inline T SmartStack<T>::RoundT(T value)
-	{
-		return static_cast<T>(floor(value * pow(10.0, 3) + 0.5) / pow(10.0, 3));
 	}
 
 	template<typename T>

@@ -18,8 +18,6 @@ namespace assignment3
 		T Min();
 		double Average();
 		T Sum();
-		T RoundT(T value);
-		double Round(double value);
 		unsigned int Count();
 		unsigned int StackCount();
 
@@ -146,22 +144,12 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return Round(static_cast<double>(mQueueStackSum) / Count());
+		return floor(mQueueStackSum / static_cast<double>(mCount) * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
 	{
-		return RoundT(mQueueStackSum);
-	}
-	template<typename T>
-	inline T QueueStack<T>::RoundT(T value)
-	{
-		return static_cast<T>(floor(value * pow(10.0, 3) + 0.5) / pow(10.0, 3));
-	}
-	template<typename T>
-	inline double QueueStack<T>::Round(double value)
-	{
-		return floor(value * pow(10.0, 3) + 0.5) / pow(10.0, 3);
+		return mQueueStackSum;
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()
