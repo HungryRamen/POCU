@@ -34,8 +34,6 @@ namespace assignment3
 		mStackCount(0),
 		mMaxStackSize(maxStackSize)
 	{
-		std::stack<T> stack;
-		mQueueStack.push(stack);
 	}
 	template<typename T>
 	inline QueueStack<T>::~QueueStack()
@@ -45,7 +43,8 @@ namespace assignment3
 	inline void QueueStack<T>::Enqueue(T value)
 	{
 		mQueueStackSum += value;
-		if (mQueueStack.back().size() >= mMaxStackSize)
+		mCount++;
+		if (mQueueStack.empty())
 		{
 			std::stack<T> stack;
 			stack.push(value);
@@ -54,11 +53,18 @@ namespace assignment3
 		}
 		else
 		{
-			if (mStackCount == 0)
+			if (mQueueStack.back().size() >= mMaxStackSize)
+			{
+				std::stack<T> stack;
+				stack.push(value);
+				mQueueStack.push(stack);
 				mStackCount++;
-			mQueueStack.back().push(value);
+			}
+			else
+			{
+				mQueueStack.back().push(value);
+			}
 		}
-		mCount++;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Peek()

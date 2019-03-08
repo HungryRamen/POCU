@@ -194,17 +194,17 @@ void SmartQueueTest()
 
 void QueueStackTest()
 {
-	// {}
-	//assignment3::QueueStack<double> queueStack2(10);
+	//assignment3::QueueStack<double>* queueStack2 = new assignment3::QueueStack<double>(5);
+	//// {}
 	//for (double i = 0; i < 100000; i++)
 	//{
-	//	queueStack2.Enqueue(i);
-	//	queueStack2.Count();
+	//	queueStack2->Enqueue(i);
+	//	queueStack2->Count();
 	//}
 	//for (double i = 0; i < 100000; i++)
 	//{
-	//	queueStack2.Dequeue();
-	//	queueStack2.Count();
+	//	queueStack2->Dequeue();
+	//	queueStack2->Count();
 	//}
 	assignment3::QueueStack<int> queueStack(3);
 	assert(queueStack.Count() == 0);
@@ -318,8 +318,8 @@ void QueueStackTest()
 int main()
 {
 	SmartStackTest();
-	SmartQueueTest();
-	//QueueStackTest();
+	//SmartQueueTest();
+	QueueStackTest();
 	assignment3::SmartStack<float> ss;
  	ss.Push(3.4f);
 	ss.Push(1.2f);
