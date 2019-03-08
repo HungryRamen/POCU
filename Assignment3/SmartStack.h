@@ -25,14 +25,12 @@ namespace assignment3
 		std::stack<T> mStack;
 		std::stack<T> mStackMax;
 		std::stack<T> mStackMin;
-		double mStackSum;
-		double mStackAverage;
+		T mStackSum;
 		double mStackSigma;
 	};
 	template<typename T> inline SmartStack<T>::SmartStack() :
 		mStackSum(0),
-		mStackSigma(0),
-		mStackAverage(0)
+		mStackSigma(0)
 	{
 		mStackMin.push(std::numeric_limits<T>::max());
 		mStackMax.push(std::numeric_limits<T>::lowest());
@@ -55,28 +53,26 @@ namespace assignment3
 	template<typename T>
 	inline void SmartStack<T>::Push(T value)
 	{
-		mStackSum += static_cast<double>(value);
+		mStackSum += value;
 		mStackSigma += static_cast<double>(value) * static_cast<double>(value);
 		if (mStackMax.top() <= value)
 			mStackMax.push(value);
 		if (mStackMin.top() >= value)
 			mStackMin.push(value);
 		mStack.push(value);
-		mStackAverage = Round(mStackSum / mStack.size());
 	}
 
 	template<typename T>
 	inline T SmartStack<T>::Pop()
 	{
 		T value = mStack.top();
-		mStackSum -= static_cast<double>(value);
+		mStackSum -= value;
 		mStackSigma -= static_cast<double>(value) * static_cast<double>(value);
 		if (value == mStackMax.top())
 			mStackMax.pop();
 		if (value == mStackMin.top())
 			mStackMin.pop();
 		mStack.pop();
-		mStackAverage = Round(mStackSum / mStack.size());
 		return value;
 	}
 
@@ -101,13 +97,13 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Average()
 	{
-		return mStackAverage;
+		return Round(mStackSum / static_cast<double>(mStack.size()));
 	}
 
 	template<typename T>
 	inline T SmartStack<T>::Sum()
 	{
-		return static_cast<T>(mStackSum);
+		return RoundT(mStackSum);
 	}
 
 	template<typename T>

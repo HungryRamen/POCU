@@ -326,7 +326,7 @@ int main()
 	assert(ss.Peek() == 9.2f);
 	assert(ss.Max() == 10.2f);
 	assert(ss.Min() == -12.4f);
-	//assert(ss.Sum() == 15.820f);
+	assert(ss.Sum() == 15.820f);
 	assert(ss.Average() == 1.582);
 	assert(ss.Variance() == 39.983);
 	assert(ss.StandardDeviation() == 6.323);
