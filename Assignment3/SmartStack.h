@@ -25,7 +25,7 @@ namespace assignment3
 		std::stack<T> mStack;
 		std::stack<T> mStackMax;
 		std::stack<T> mStackMin;
-		double mStackSum;
+		T mStackSum;
 		double mStackSigma;
 	};
 	template<typename T> inline SmartStack<T>::SmartStack() :
@@ -53,7 +53,7 @@ namespace assignment3
 	template<typename T>
 	inline void SmartStack<T>::Push(T value)
 	{
-		mStackSum += static_cast<double>(value);
+		mStackSum += value;
 		mStackSigma += static_cast<double>(value) * static_cast<double>(value);
 		if (mStackMax.top() <= value)
 			mStackMax.push(value);
@@ -66,7 +66,7 @@ namespace assignment3
 	inline T SmartStack<T>::Pop()
 	{
 		T value = mStack.top();
-		mStackSum -= static_cast<double>(value);
+		mStackSum -= value;
 		mStackSigma -= static_cast<double>(value) * static_cast<double>(value);
 		if (value == mStackMax.top())
 			mStackMax.pop();
@@ -97,25 +97,25 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Average()
 	{
-		return Round(mStackSum / mStack.size());
+		return floor(mStackSum / static_cast<double>(mStack.size()) * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 
 	template<typename T>
 	inline T SmartStack<T>::Sum()
 	{
-		return RoundT(static_cast<T>(mStackSum));
+		return mStackSum;
 	}
 
 	template<typename T>
 	inline double SmartStack<T>::Variance()
 	{
-		return Round(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2));
+		return Round(mStackSigma / mStack.size() - pow(mStackSum / static_cast<double>(mStack.size()), 2));
 	}
 
 	template<typename T>
 	inline double SmartStack<T>::StandardDeviation()
 	{
-		return Round(sqrt(mStackSigma / mStack.size() - pow(mStackSum / mStack.size(), 2)));
+		return Round(sqrt(mStackSigma / mStack.size() - pow(mStackSum / static_cast<double>(mStack.size()), 2)));
 	}
 
 	template<typename T>

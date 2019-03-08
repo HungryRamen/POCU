@@ -108,7 +108,6 @@ void SmartQueueTest()
 {
 	const double EPSILON = std::numeric_limits<double>::min();
 	
-	// {}
 	assignment3::SmartQueue<double> smartQueue;
 	assert(smartQueue.Count() == 0);
 	assert(smartQueue.Max() == std::numeric_limits<double>::lowest());
@@ -196,6 +195,17 @@ void SmartQueueTest()
 void QueueStackTest()
 {
 	// {}
+	//assignment3::QueueStack<double> queueStack2(10);
+	//for (double i = 0; i < 100000; i++)
+	//{
+	//	queueStack2.Enqueue(i);
+	//	queueStack2.Count();
+	//}
+	//for (double i = 0; i < 100000; i++)
+	//{
+	//	queueStack2.Dequeue();
+	//	queueStack2.Count();
+	//}
 	assignment3::QueueStack<int> queueStack(3);
 	assert(queueStack.Count() == 0);
 	assert(queueStack.StackCount() == 0);
@@ -308,8 +318,8 @@ void QueueStackTest()
 int main()
 {
 	SmartStackTest();
-	SmartQueueTest();
-	QueueStackTest();
+	//SmartQueueTest();
+	//QueueStackTest();
 	assignment3::SmartStack<float> ss;
  	ss.Push(3.4f);
 	ss.Push(1.2f);
@@ -321,12 +331,12 @@ int main()
 	ss.Push(1.1f);
 	ss.Push(-12.4f);
 	ss.Push(9.2f);
-	
+	float f = 15.820f;
 	assert(ss.Count() == 10U);
 	assert(ss.Peek() == 9.2f);
 	assert(ss.Max() == 10.2f);
 	assert(ss.Min() == -12.4f);
-	assert(ss.Sum() == 15.820f);
+	assert(ss.Sum() == f);
 	assert(ss.Average() == 1.582);
 	assert(ss.Variance() == 39.983);
 	assert(ss.StandardDeviation() == 6.323);

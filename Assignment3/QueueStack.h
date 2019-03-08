@@ -109,7 +109,7 @@ namespace assignment3
 			mQueueStack.pop();
 			queuestack.push(stack2);
 		}
-		mQueueStack = queuestack;
+		queuestack.swap(mQueueStack);
 		return max;
 	}
 	template<typename T>
@@ -140,7 +140,7 @@ namespace assignment3
 			mQueueStack.pop();
 			queuestack.push(stack2);
 		}
-		mQueueStack = queuestack;
+		queuestack.swap(mQueueStack);
 		return min;
 	}
 	template<typename T>
