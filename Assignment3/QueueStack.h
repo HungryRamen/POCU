@@ -150,7 +150,7 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return floor(mQueueStackSum / static_cast<double>(mCount) * pow(10.0, 3) + 0.5) / pow(10.0, 3);
+		return floor(static_cast<double>(mQueueStackSum) / mCount * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
