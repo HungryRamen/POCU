@@ -7,6 +7,9 @@
 void SmartStackTest()
 {
 	// {}
+	assignment3::SmartStack<int> smartStack2;
+	smartStack2.Push(10);
+	assert(smartStack2.Sum() == 10);
 	assignment3::SmartStack<double> smartStack;
 	assert(smartStack.Count() == 0);
 	assert(smartStack.Max() == std::numeric_limits<double>::lowest());
