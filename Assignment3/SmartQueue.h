@@ -23,7 +23,7 @@ namespace assignment3
 	private:
 		std::queue<T> mQueue;
 		T mQueueSum;
-		T mQueueSigma;
+		double mQueueSigma;
 	};
 	template<typename T>
 	inline SmartQueue<T>::SmartQueue() :
@@ -49,7 +49,7 @@ namespace assignment3
 	inline void SmartQueue<T>::Enqueue(T value)
 	{
 		mQueueSum += value;
-		mQueueSigma += value * value;
+		mQueueSigma += static_cast<double>(value) * static_cast<double>(value);
 		mQueue.push(value);
 	}
 	template<typename T>
@@ -62,7 +62,7 @@ namespace assignment3
 	{
 		T value = mQueue.front();
 		mQueueSum -= value;
-		mQueueSigma -= value * value;
+		mQueueSigma -= static_cast<double>(value) * static_cast<double>(value);
 		mQueue.pop();
 		return value;
 	}
@@ -99,12 +99,12 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Average()
 	{
-		return Round(static_cast<double>(mQueueSum) / mQueue.size());
+		return Round(mQueueSum / mQueue.size());
 	}
 	template<typename T>
 	inline T SmartQueue<T>::Sum()
 	{
-		return RoundT(mQueueSum);
+		return mQueueSum;
 	}
 	template<typename T>
 	inline double SmartQueue<T>::Variance()
