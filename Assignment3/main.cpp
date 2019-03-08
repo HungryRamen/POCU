@@ -309,7 +309,7 @@ int main()
 {
 	SmartStackTest();
 	SmartQueueTest();
-	//QueueStackTest();
+	QueueStackTest();
 	assignment3::SmartStack<float> ss;
  	ss.Push(3.4f);
 	ss.Push(1.2f);
