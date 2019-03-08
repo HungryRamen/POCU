@@ -22,7 +22,7 @@ namespace assignment3
 		unsigned int Count();
 	private:
 		std::queue<T> mQueue;
-		double mQueueSum;
+		T mQueueSum;
 		double mQueueSigma;
 	};
 	template<typename T>
@@ -99,22 +99,22 @@ namespace assignment3
 	template<typename T>
 	inline double SmartQueue<T>::Average()
 	{
-		return floor(mQueueSum / mQueue.size() * pow(10.0, 3) + 0.5) / pow(10.0, 3);
+		return floor(mQueueSum / static_cast<double>(mQueue.size()) * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 	template<typename T>
 	inline T SmartQueue<T>::Sum()
 	{
-		return static_cast<T>(mQueueSum);
+		return mQueueSum;
 	}
 	template<typename T>
 	inline double SmartQueue<T>::Variance()
 	{
-		return Round(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2));
+		return Round(mQueueSigma / mQueue.size() - pow(mQueueSum / static_cast<double>(mQueue.size()), 2));
 	}
 	template<typename T>
 	inline double SmartQueue<T>::StandardDeviation()
 	{
-		return Round(sqrt(mQueueSigma / mQueue.size() - pow(mQueueSum / mQueue.size(), 2)));
+		return Round(sqrt(mQueueSigma / mQueue.size() - pow(mQueueSum / static_cast<double>(mQueue.size()), 2)));
 	}
 	template<typename T>
 	inline unsigned int SmartQueue<T>::Count()
