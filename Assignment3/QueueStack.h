@@ -52,80 +52,39 @@ namespace assignment3
 	template<typename T>
 	inline void QueueStack<T>::Enqueue(T value)
 	{
-		//if (mStack == nullptr)
-		//{
-		//	std::stack<T>* stack = new std::stack<T>();
-		//	mStack = stack;
-		//	mStackCount++;
-		//}
-		//mStack->push(value);
-		//mQueueStackSum += value;
-		//mCount++;
-		//if (mStack->size() >= mMaxStackSize)
-		//{
-		//	mQueueStack.push(mStack);
-		//	mStack = nullptr;
-		//}
-		std::stack<T>* stack = mQueueStack.back();
 		mQueueStackSum += value;
-		if (stack->size() >= mMaxStackSize)
+		if (mQueueStack.back()->size() >= mMaxStackSize)
 		{
-			std::stack<T>* stack2 = new std::stack<T>();
-			stack2->push(value);
-			mQueueStack.push(stack2);
+			std::stack<T>* stack = new std::stack<T>();
+			stack->push(value);
+			mQueueStack.push(stack);
 			mStackCount++;
 		}
 		else
 		{
 			if (mStackCount == 0)
 				mStackCount++;
-			stack->push(value);
+			mQueueStack.back()->push(value);
 		}
 		mCount++;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Peek()
 	{
-		//if (mQueueStack.empty())
-		//{
-		//	if (!mStack->empty())
-		//	{
-		//		return mStack->top();
-		//	}
-		//}
-		std::stack<T>* stack = mQueueStack.front();
-		return stack->top();
+		return mQueueStack.front()->top();
 	}
 	template<typename T>
 	inline T QueueStack<T>::Dequeue()
 	{
-		//if (mQueueStack.empty())
-		//{
-		//	if (!mStack->empty())
-		//	{
-		//		T value = mStack->top();
-		//		mStack->pop();
-		//		mQueueStackSum -= value;
-		//		mCount--;
-		//		if (mStack->empty())
-		//		{
-		//			delete mStack;
-		//			mStack = nullptr;
-		//			mStackCount--;
-		//		}
-		//		return value;
-		//	}
-		//}
-		std::stack<T>* stack = mQueueStack.front();
-		T value = stack->top();
+		T value = mQueueStack.front()->top();
 		mQueueStackSum -= value;
-		stack->pop();
+		mQueueStack.front()->pop();
 		mCount--;
-		if (stack->empty())
+		if (mQueueStack.front()->empty())
 		{
 			mStackCount--;
+			delete mQueueStack.front();
 			mQueueStack.pop();
-			delete stack;
 		}
 		return value;
 	}
