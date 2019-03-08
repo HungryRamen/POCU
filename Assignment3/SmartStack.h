@@ -97,7 +97,7 @@ namespace assignment3
 	template<typename T>
 	inline double SmartStack<T>::Average()
 	{
-		return floor(mStackSum / mStack.size() * pow(10.0, 3) + 0.5) / pow(10.0, 3);
+		return Round(mStackSum / mStack.size());
 	}
 
 	template<typename T>
