@@ -141,20 +141,7 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		double value = 0;
-		if (mQueueStack.size() == 1)
-		{
-			value = mQueueStack.front().size();
-		}
-		else if (mQueueStack.size() == 2)
-		{
-			value = mQueueStack.front().size() + mQueueStack.back().size();
-		}
-		else
-		{
-			value = mQueueStack.front().size() + mQueueStack.back().size() + (mQueueStack.size() - 2) * mMaxStackSize;
-		}
-		return round(mQueueStackSum / value * 1000) / 1000;
+		return round(static_cast<double>(mQueueStackSum) / Count() * 1000) / 1000;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
