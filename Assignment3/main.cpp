@@ -106,6 +106,8 @@ void SmartStackTest()
 
 void SmartQueueTest()
 {
+	assignment3::SmartQueue<int> smartQueue2;
+	smartQueue2.Enqueue(2);
 	const double EPSILON = std::numeric_limits<double>::min();
 	
 	assignment3::SmartQueue<double> smartQueue;
