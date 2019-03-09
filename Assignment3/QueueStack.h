@@ -23,7 +23,7 @@ namespace assignment3
 
 	private:
 		std::queue<std::stack<T>> mQueueStack;
-		double mQueueStackSum;
+		T mQueueStackSum;
 		unsigned int mCount;
 		unsigned int mStackCount;
 		unsigned int mMaxStackSize;
@@ -150,12 +150,12 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return floor(mQueueStackSum / mCount * pow(10.0, 3) + 0.5) / pow(10.0, 3);
+		return round(mQueueStackSum / static_cast<double>(mCount) * 1000) / 1000;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
 	{
-		return static_cast<T>(mQueueStackSum);
+		return mQueueStackSum;
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()
