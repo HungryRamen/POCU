@@ -194,19 +194,9 @@ void SmartQueueTest()
 
 void QueueStackTest()
 {
-	//assignment3::QueueStack<double>* queueStack2 = new assignment3::QueueStack<double>(5);
-	//// {}
-	//for (double i = 0; i < 100000; i++)
-	//{
-	//	queueStack2->Enqueue(i);
-	//	queueStack2->Count();
-	//}
-	//for (double i = 0; i < 100000; i++)
-	//{
-	//	queueStack2->Dequeue();
-	//	queueStack2->Count();
-	//}
 	assignment3::QueueStack<int> queueStack(3);
+	assert(queueStack.Sum() == 0);
+	assert(queueStack.Average() == 0);
 	assert(queueStack.Count() == 0);
 	assert(queueStack.StackCount() == 0);
 	assert(queueStack.Max() == std::numeric_limits<int>::lowest());
