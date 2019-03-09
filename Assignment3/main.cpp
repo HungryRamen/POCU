@@ -196,7 +196,6 @@ void QueueStackTest()
 {
 	assignment3::QueueStack<int> queueStack(3);
 	assert(queueStack.Sum() == 0);
-	assert(queueStack.Average() == 0);
 	assert(queueStack.Count() == 0);
 	assert(queueStack.StackCount() == 0);
 	assert(queueStack.Max() == std::numeric_limits<int>::lowest());
