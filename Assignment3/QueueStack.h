@@ -24,12 +24,10 @@ namespace assignment3
 	private:
 		std::queue<std::stack<T>> mQueueStack;
 		T mQueueStackSum;
-		double mCount;
 		unsigned int mMaxStackSize;
 	};
 	template<typename T>
 	inline QueueStack<T>::QueueStack(unsigned int maxStackSize) :
-		mCount(0),
 		mMaxStackSize(maxStackSize)
 	{
 	}
@@ -41,7 +39,6 @@ namespace assignment3
 	inline void QueueStack<T>::Enqueue(T value)
 	{
 		mQueueStackSum += value;
-		mCount++;
 		if (mQueueStack.empty())
 		{
 			std::stack<T> stack;
@@ -72,7 +69,6 @@ namespace assignment3
 	{
 		T value = mQueueStack.front().top();
 		mQueueStackSum -= value;
-		mCount--;
 		mQueueStack.front().pop();
 		if (mQueueStack.front().empty())
 		{
@@ -84,7 +80,7 @@ namespace assignment3
 	inline T QueueStack<T>::Max()
 	{
 		T max = std::numeric_limits<T>::lowest();
-		if (mCount == 0)
+		if (mQueueStack.empty())
 			return max;
 		std::queue<std::stack<T>> queuestack;
 		std::stack<T> stack;
@@ -115,7 +111,7 @@ namespace assignment3
 	inline T QueueStack<T>::Min()
 	{
 		T min = std::numeric_limits<T>::max();
-		if (mCount == 0)
+		if (mQueueStack.empty())
 			return min;
 		std::queue<std::stack<T>> queuestack;
 		std::stack<T> stack;
@@ -145,7 +141,20 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return round(mQueueStackSum / mCount * 1000) / 1000;
+		double value = 0;
+		if (mQueueStack.size() == 1)
+		{
+			value = mQueueStack.front().size();
+		}
+		else if (mQueueStack.size() == 2)
+		{
+			value = mQueueStack.front().size() + mQueueStack.back().size();
+		}
+		else
+		{
+			value = mQueueStack.front().size() + mQueueStack.back().size() + (mQueueStack.size() - 2) * mMaxStackSize;
+		}
+		return round(mQueueStackSum / value * 1000) / 1000;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
@@ -155,7 +164,17 @@ namespace assignment3
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()
 	{
-		return static_cast<unsigned int>(mCount);
+		if (mQueueStack.empty())
+			return 0;
+		else if (mQueueStack.size() == 1)
+		{
+			return mQueueStack.front().size();
+		}
+		else if (mQueueStack.size() == 2)
+		{
+			return mQueueStack.front().size() + mQueueStack.back().size();
+		}
+		return mQueueStack.front().size() + mQueueStack.back().size() + (mQueueStack.size() - 2) * mMaxStackSize;
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::StackCount()
