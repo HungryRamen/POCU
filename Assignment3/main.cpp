@@ -196,6 +196,21 @@ void SmartQueueTest()
 
 void QueueStackTest()
 {
+	//assignment3::QueueStack<double> queueStack2(3);
+	//for (double i = 1; i < 10000; i++)
+	//{
+	//	queueStack2.Enqueue(0.00001);
+	//}
+	//std::cout << queueStack2.Average() << std::endl;
+	//std::cout << queueStack2.Sum() << std::endl;
+	//for (double i = 1; i < 9999; i++)
+	//{
+	//	queueStack2.Dequeue();
+	//}
+	//std::cout << queueStack2.Sum() << std::endl;
+	//std::cout << queueStack2.Peek() << std::endl;
+	//std::cout << queueStack2.Average() << std::endl;
+	//assert(queueStack2.Average() == 2.5);
 	assignment3::QueueStack<int> queueStack(3);
 	assert(queueStack.Sum() == 0);
 	assert(queueStack.Count() == 0);
