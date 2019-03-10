@@ -123,8 +123,6 @@ namespace assignment3
 	template<typename T>
 	inline T QueueStack<T>::Sum()
 	{
-		if (mQueueStack.empty())
-			mQueueStackSum = 0;
 		return mQueueStackSum;
 	}
 	template<typename T>
