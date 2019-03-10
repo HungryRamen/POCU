@@ -82,29 +82,19 @@ namespace assignment3
 		T max = std::numeric_limits<T>::lowest();
 		if (mQueueStack.empty())
 			return max;
-		std::queue<std::stack<T>> queuestack;
-		std::stack<T> stack;
-		while (!mQueueStack.empty())
+		std::queue<std::stack<T>> queuestack = mQueueStack;
+		while (!queuestack.empty())
 		{
-			while (!mQueueStack.front().empty())
+			while (!queuestack.front().empty())
 			{
-				if (max < mQueueStack.front().top())
+				if (max < queuestack.front().top())
 				{
-					max = mQueueStack.front().top();
+					max = queuestack.front().top();
 				}
-				stack.push(mQueueStack.front().top());
-				mQueueStack.front().pop();
+				queuestack.front().pop();
 			}
-			std::stack<T> stack2;
-			while (!stack.empty())
-			{
-				stack2.push(stack.top());
-				stack.pop();
-			}
-			mQueueStack.pop();
-			queuestack.push(stack2);
+			queuestack.pop();
 		}
-		queuestack.swap(mQueueStack);
 		return max;
 	}
 	template<typename T>
@@ -113,37 +103,25 @@ namespace assignment3
 		T min = std::numeric_limits<T>::max();
 		if (mQueueStack.empty())
 			return min;
-		std::queue<std::stack<T>> queuestack;
-		std::stack<T> stack;
-		while (!mQueueStack.empty())
+		std::queue<std::stack<T>> queuestack = mQueueStack;
+		while (!queuestack.empty())
 		{
-			while (!mQueueStack.front().empty())
+			while (!queuestack.front().empty())
 			{
-				if (min > mQueueStack.front().top())
+				if (min > queuestack.front().top())
 				{
-					min = mQueueStack.front().top();
+					min = queuestack.front().top();
 				}
-				stack.push(mQueueStack.front().top());
-				mQueueStack.front().pop();
+				queuestack.front().pop();
 			}
-			std::stack<T> stack2;
-			while (!stack.empty())
-			{
-				stack2.push(stack.top());
-				stack.pop();
-			}
-			mQueueStack.pop();
-			queuestack.push(stack2);
+			queuestack.pop();
 		}
-		queuestack.swap(mQueueStack);
 		return min;
 	}
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		unsigned int size = Count();
-		double value = static_cast<double>(mQueueStackSum) / size;
-		return round(value * 1000.0) / 1000.0;
+		return floor(mQueueStackSum / static_cast<double>(Count()) * pow(10.0, 3) + 0.5) / pow(10.0, 3);
 	}
 
 	template<typename T>

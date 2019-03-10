@@ -199,8 +199,12 @@ void QueueStackTest()
 	//assignment3::QueueStack<double> queueStack2(3);
 	//for (double i = 1; i < 10000; i++)
 	//{
-	//	queueStack2.Enqueue(0.00001);
+	//	queueStack2.Enqueue(0.01);
 	//}
+	//std::cout << queueStack2.Average() << std::endl;
+	//std::cout << queueStack2.Sum() << std::endl;
+	//queueStack2.Max();
+	//queueStack2.Min();
 	//std::cout << queueStack2.Average() << std::endl;
 	//std::cout << queueStack2.Sum() << std::endl;
 	//for (double i = 1; i < 9999; i++)
