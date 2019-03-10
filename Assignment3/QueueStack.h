@@ -23,6 +23,7 @@ namespace assignment3
 
 	private:
 		std::queue<std::stack<T>> mQueueStack;
+		T mQueueStackSum;
 		unsigned int mMaxStackSize;
 	};
 	template<typename T>
@@ -37,6 +38,7 @@ namespace assignment3
 	template<typename T>
 	inline void QueueStack<T>::Enqueue(T value)
 	{
+		mQueueStackSum += value;
 		if (mQueueStack.empty())
 		{
 			std::stack<T> stack;
@@ -66,6 +68,7 @@ namespace assignment3
 	inline T QueueStack<T>::Dequeue()
 	{
 		T value = mQueueStack.front().top();
+		mQueueStackSum -= value;
 		mQueueStack.front().pop();
 		if (mQueueStack.front().empty())
 		{
@@ -138,35 +141,27 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return round(Sum() / static_cast<double>(Count()) * 1000.0) / 1000.0;
+		double value;
+		if (mQueueStack.size() == 1)
+		{
+			value = mQueueStack.front().size();
+		}
+		else if (mQueueStack.size() == 2)
+		{
+			value = mQueueStack.front().size() + mQueueStack.back().size();
+		}
+		else
+		{
+			value = mQueueStack.front().size() + mQueueStack.back().size() + (mQueueStack.size() - 2) * mMaxStackSize;
+		}
+		return round(mQueueStackSum / value * 1000.0) / 1000.0;
 	}
 	template<typename T>
 	inline T QueueStack<T>::Sum()
 	{
 		if (mQueueStack.empty())
-			return 0;
-		T value = 0;
-		std::queue<std::stack<T>> queuestack;
-		std::stack<T> stack;
-		while (!mQueueStack.empty())
-		{
-			while (!mQueueStack.front().empty())
-			{
-				value += mQueueStack.front().top();
-				stack.push(mQueueStack.front().top());
-				mQueueStack.front().pop();
-			}
-			std::stack<T> stack2;
-			while (!stack.empty())
-			{
-				stack2.push(stack.top());
-				stack.pop();
-			}
-			mQueueStack.pop();
-			queuestack.push(stack2);
-		}
-		queuestack.swap(mQueueStack);
-		return value;
+			mQueueStackSum = 0;
+		return mQueueStackSum;
 	}
 	template<typename T>
 	inline unsigned int QueueStack<T>::Count()
