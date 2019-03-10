@@ -28,6 +28,7 @@ namespace assignment3
 	};
 	template<typename T>
 	inline QueueStack<T>::QueueStack(unsigned int maxStackSize) :
+		mQueueStackSum(0)
 		mMaxStackSize(maxStackSize)
 	{
 	}
