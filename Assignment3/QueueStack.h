@@ -84,8 +84,6 @@ namespace assignment3
 	inline T QueueStack<T>::Max()
 	{
 		T max = std::numeric_limits<T>::lowest();
-		if (mQueueStack.empty())
-			return max;
 		std::queue<std::stack<T>> queuestack = mQueueStack;
 		while (!queuestack.empty())
 		{
@@ -105,8 +103,6 @@ namespace assignment3
 	inline T QueueStack<T>::Min()
 	{
 		T min = std::numeric_limits<T>::max();
-		if (mQueueStack.empty())
-			return min;
 		std::queue<std::stack<T>> queuestack = mQueueStack;
 		while (!queuestack.empty())
 		{
