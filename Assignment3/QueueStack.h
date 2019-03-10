@@ -73,8 +73,6 @@ namespace assignment3
 		if (mQueueStack.front().empty())
 		{
 			mQueueStack.pop();
-			if (mQueueStack.empty())
-				mQueueStackSum = 0;
 		}
 		return value;
 	}
@@ -143,7 +141,9 @@ namespace assignment3
 	template<typename T>
 	inline double QueueStack<T>::Average()
 	{
-		return round(mQueueStackSum / static_cast<double>(Count()) * 1000.0) / 1000.0;
+		unsigned int size = Count();
+		double value = static_cast<double>(mQueueStackSum) / size;
+		return round(value * 1000.0) / 1000.0;
 	}
 
 	template<typename T>
