@@ -11,11 +11,11 @@ namespace lab8
 		~FixedVector();
 		bool Add(bool bData);
 		bool Remove(bool bData);
-		bool Get(unsigned int index) const;
+		bool Get(unsigned int index);
 		bool operator[](unsigned int index);
-		int GetIndex(bool bData) const;
-		size_t GetSize() const;
-		size_t GetCapacity() const;
+		int GetIndex(bool bData);
+		size_t GetSize();
+		size_t GetCapacity();
 	private:
 		int* mFixedBoolVector;
 		size_t mCount;
@@ -81,7 +81,7 @@ namespace lab8
 		return false;
 	}
 	template<size_t N>
-	inline bool FixedVector<bool, N>::Get(unsigned int index) const
+	inline bool FixedVector<bool, N>::Get(unsigned int index)
 	{
 		return static_cast<bool>(mFixedBoolVector[index / (sizeof(int) * 8)] & (1 << (index % (sizeof(int) * 8))));
 	}
@@ -91,7 +91,7 @@ namespace lab8
 		return static_cast<bool>(mFixedBoolVector[index / (sizeof(int) * 8)] & (1 << (index % (sizeof(int) * 8))));
 	}
 	template<size_t N>
-	inline int FixedVector<bool, N>::GetIndex(bool bData) const
+	inline int FixedVector<bool, N>::GetIndex(bool bData)
 	{
 		size_t count = 0;
 		for (size_t index = 0; index < mCount; index++)
@@ -105,12 +105,12 @@ namespace lab8
 		return -1;
 	}
 	template<size_t N>
-	inline size_t FixedVector<bool, N>::GetSize() const
+	inline size_t FixedVector<bool, N>::GetSize()
 	{
 		return mCount;
 	}
 	template<size_t N>
-	inline size_t FixedVector<bool, N>::GetCapacity() const
+	inline size_t FixedVector<bool, N>::GetCapacity()
 	{
 		return N;
 	}
