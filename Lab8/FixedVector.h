@@ -16,19 +16,17 @@ namespace lab8
 		size_t GetSize();
 		size_t GetCapacity();
 	private:
-		T* mFixedVector;
+		T mFixedVector[N];
 		size_t mCount;
 	};
 	template<class T, size_t N>
 	inline FixedVector<T, N>::FixedVector() :
 		mCount(0)
 	{
-		mFixedVector = new T[N];
 	}
 	template<class T, size_t N>
 	inline FixedVector<T, N>::~FixedVector()
 	{
-		delete[] mFixedVector;
 	}
 	template<class T, size_t N>
 	inline bool FixedVector<T, N>::Add(T value)
