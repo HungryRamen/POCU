@@ -21,7 +21,8 @@ int main()
 	iv.Add(i2);
 	iv.Add(i3);
 	iv.Add(i4);
-
+	iv[1] = 2;
+	std::cout << iv[1] << std::endl;
 	//assert(iv.GetSize() == 4);
 	//assert(iv.GetIndex(i2) == 1);
 	//assert(iv.Get(1) == i2);
