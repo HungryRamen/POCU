@@ -13,11 +13,11 @@ int main()
 	int i3 = 10;
 	int i4 = -4;
 	int i5 = 70;
-
+	
 	FixedVector<int, 33> iv;
-
+	
 	assert(iv.GetCapacity() == 33);
-
+	
 	iv.Add(i1);
 	iv.Add(i2);
 	iv.Add(i3);
