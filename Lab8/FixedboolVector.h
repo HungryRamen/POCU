@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "FixedVector.h"
 namespace lab8
 {
@@ -18,14 +19,17 @@ namespace lab8
 	private:
 		int* mFixedBoolVector;
 		size_t mCount;
+		size_t mCapacity;
 	};
 	template<size_t N>
 	inline FixedVector<bool, N>::FixedVector() :
-		mCount(0)
+		mCount(0),
+		mCapacity(N)
 	{
 		size_t size = N / (sizeof(int) * 8); //1비트 단위인 N 을 N/32비트로 나눠서 배열크기를 잡아준다.
 		size += N % (sizeof(int) * 8) == 0 ? 0 : 1; //나머지몫이 0이아니면 추가 배열크기를 하나 더 늘린다.
 		mFixedBoolVector = new int[size];      //할당
+		std::memset(mFixedBoolVector, 0, sizeof(int) * size); //0으로 초기화
 	}
 	template<size_t N>
 	inline FixedVector<bool, N>::~FixedVector()
@@ -110,6 +114,6 @@ namespace lab8
 	template<size_t N>
 	inline size_t FixedVector<bool, N>::GetCapacity()
 	{
-		return N;
+		return mCapacity;
 	}
 }
