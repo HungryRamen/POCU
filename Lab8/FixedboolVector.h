@@ -16,7 +16,7 @@ namespace lab8
 		size_t GetSize();
 		size_t GetCapacity();
 	private:
-		int32_t mFixedBoolVector[N - 31 / N];
+		int32_t mFixedBoolVector[N + 31 / N];
 		size_t mCount;
 	};
 	template<size_t N>
