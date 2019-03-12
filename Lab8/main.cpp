@@ -1,5 +1,5 @@
 #include <cassert>
-
+#include <iostream>
 #include "FixedVector.h"
 #include "FixedBoolVector.h"
 
@@ -7,7 +7,6 @@ using namespace lab8;
 
 int main()
 {
-	std::cout << sizeof(int32_t) << std::endl;
 	int i1 = 23;
 	int i2 = 25;
 	int i3 = 10;
