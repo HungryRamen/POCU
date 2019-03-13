@@ -8,9 +8,9 @@ namespace lab8
 	public:
 		FixedVector();
 		~FixedVector();
-		bool Add(const T& value);
+		bool Add(T& value);
 		bool Remove(T value);
-		T& Get(unsigned int index);
+		T& Get(unsigned int index) const;
 		T& operator[](unsigned int index);
 		int GetIndex(T value);
 		size_t GetSize();
@@ -32,7 +32,7 @@ namespace lab8
 	}
 
 	template<class T, size_t N>
-	inline bool FixedVector<T, N>::Add(const T& value)
+	inline bool FixedVector<T, N>::Add(T& value)
 	{
 		if (mCount >= N)
 			return false;
@@ -59,7 +59,7 @@ namespace lab8
 	}
 
 	template<class T, size_t N>
-	inline T& FixedVector<T, N>::Get(unsigned int index)
+	inline T& FixedVector<T, N>::Get(unsigned int index) const
 	{
 		return mFixedVector[index];
 	}
