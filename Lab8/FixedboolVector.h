@@ -17,26 +17,19 @@ namespace lab8
 		size_t GetSize();
 		size_t GetCapacity();
 	private:
-		int* mFixedBoolVector;
+		int32_t mFixedBoolVector[(N + 31) / 32];
 		size_t mCount;
-		size_t mCapacity;
 	};
 
 	template<size_t N>
 	inline FixedVector<bool, N>::FixedVector() :
-		mCount(0),
-		mCapacity(N)
+		mCount(0)
 	{
-		size_t size = N / 32; //1비트 단위인 N 을 N/32비트로 나눠서 배열크기를 잡아준다.
-		size += N % 32 == 0 ? 0 : 1; //나머지몫이 0이아니면 추가 배열크기를 하나 더 늘린다.
-		mFixedBoolVector = new int[size];      //할당
-		std::memset(mFixedBoolVector, 0, sizeof(int) * size); //0으로 초기화
 	}
 
 	template<size_t N>
 	inline FixedVector<bool, N>::~FixedVector()
 	{
-		delete[] mFixedBoolVector;   //동적해체
 	}
 
 	template<size_t N>
@@ -123,7 +116,7 @@ namespace lab8
 	template<size_t N>
 	inline size_t FixedVector<bool, N>::GetCapacity()
 	{
-		return mCapacity;
+		return N;
 	}
 
 }

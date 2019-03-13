@@ -42,7 +42,7 @@ namespace lab8
 	}
 
 	template<class T, size_t N>
-	inline bool FixedVector<T, N>::Add(T && value)
+	inline bool FixedVector<T, N>::Add(T&& value)
 	{
 		if (mCount >= N)
 			return false;
