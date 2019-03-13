@@ -1,7 +1,7 @@
 #include <cassert>
 #include "FixedVector.h"
 #include "FixedBoolVector.h"
-
+#include <vector>
 using namespace lab8;
 
 int main()
@@ -11,7 +11,8 @@ int main()
 	int i3 = 10;
 	int i4 = -4;
 	int i5 = 70;
-	
+	std::vector<int> a;
+	a.push_back(1);
 	FixedVector<int, 33> iv;
 	
 	assert(iv.GetCapacity() == 33);
