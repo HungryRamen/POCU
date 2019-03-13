@@ -19,15 +19,18 @@ namespace lab8
 		T mFixedVector[N];
 		size_t mCount;
 	};
+
 	template<class T, size_t N>
 	inline FixedVector<T, N>::FixedVector() :
 		mCount(0)
 	{
 	}
+
 	template<class T, size_t N>
 	inline FixedVector<T, N>::~FixedVector()
 	{
 	}
+
 	template<class T, size_t N>
 	inline bool FixedVector<T, N>::Add(T value)
 	{
@@ -36,6 +39,7 @@ namespace lab8
 		mFixedVector[mCount++] = value;
 		return true;
 	}
+
 	template<class T, size_t N>
 	inline bool FixedVector<T, N>::Remove(T value)
 	{
@@ -53,16 +57,19 @@ namespace lab8
 		}
 		return false;
 	}
+
 	template<class T, size_t N>
 	inline T FixedVector<T, N>::Get(unsigned int index) const
 	{
 		return mFixedVector[index];
 	}
+
 	template<class T, size_t N>
 	inline T& FixedVector<T, N>::operator[](unsigned int index)
 	{
 		return mFixedVector[index];
 	}
+
 	template<class T, size_t N>
 	inline int FixedVector<T, N>::GetIndex(T value)
 	{
@@ -75,14 +82,17 @@ namespace lab8
 		}
 		return -1;
 	}
+
 	template<class T, size_t N>
 	inline size_t FixedVector<T, N>::GetSize()
 	{
 		return mCount;
 	}
+
 	template<class T, size_t N>
 	inline size_t FixedVector<T, N>::GetCapacity()
 	{
 		return N;
 	}
+
 }

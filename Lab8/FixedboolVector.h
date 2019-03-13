@@ -21,6 +21,7 @@ namespace lab8
 		size_t mCount;
 		size_t mCapacity;
 	};
+
 	template<size_t N>
 	inline FixedVector<bool, N>::FixedVector() :
 		mCount(0),
@@ -31,11 +32,13 @@ namespace lab8
 		mFixedBoolVector = new int[size];      //할당
 		std::memset(mFixedBoolVector, 0, sizeof(int) * size); //0으로 초기화
 	}
+
 	template<size_t N>
 	inline FixedVector<bool, N>::~FixedVector()
 	{
 		delete[] mFixedBoolVector;   //동적해체
 	}
+
 	template<size_t N>
 	inline bool FixedVector<bool, N>::Add(bool bData)
 	{
@@ -54,6 +57,7 @@ namespace lab8
 		mCount++;
 		return true;
 	}
+
 	template<size_t N>
 	inline bool FixedVector<bool, N>::Remove(bool bData)
 	{
@@ -82,16 +86,19 @@ namespace lab8
 		}
 		return false;
 	}
+
 	template<size_t N>
 	inline bool FixedVector<bool, N>::Get(unsigned int index)
 	{
 		return static_cast<bool>(mFixedBoolVector[index / 32] & (1 << (index % 32)));
 	}
+
 	template<size_t N>
 	inline bool FixedVector<bool, N>::operator[](unsigned int index)
 	{
 		return static_cast<bool>(mFixedBoolVector[index / 32] & (1 << (index % 32)));
 	}
+
 	template<size_t N>
 	inline int FixedVector<bool, N>::GetIndex(bool bData)
 	{
@@ -106,14 +113,17 @@ namespace lab8
 		}
 		return -1;
 	}
+
 	template<size_t N>
 	inline size_t FixedVector<bool, N>::GetSize()
 	{
 		return mCount;
 	}
+
 	template<size_t N>
 	inline size_t FixedVector<bool, N>::GetCapacity()
 	{
 		return mCapacity;
 	}
+
 }
