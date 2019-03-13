@@ -9,7 +9,6 @@ namespace lab8
 		FixedVector();
 		~FixedVector();
 		bool Add(const T& value);
-		bool Add(T&& value);
 		bool Remove(T value);
 		T& Get(unsigned int index);
 		T& operator[](unsigned int index);
