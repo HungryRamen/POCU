@@ -11,7 +11,7 @@ namespace lab8
 		bool Add(const T& value);
 		bool Add(T&& value);
 		bool Remove(T value);
-		T Get(unsigned int index) const;
+		T& Get(unsigned int index);
 		T& operator[](unsigned int index);
 		int GetIndex(T value);
 		size_t GetSize();
@@ -42,15 +42,6 @@ namespace lab8
 	}
 
 	template<class T, size_t N>
-	inline bool FixedVector<T, N>::Add(T&& value)
-	{
-		if (mCount >= N)
-			return false;
-		mFixedVector[mCount++] = value;
-		return true;
-	}
-
-	template<class T, size_t N>
 	inline bool FixedVector<T, N>::Remove(T value)
 	{
 		for (size_t index = 0; index < mCount; index++)
@@ -69,7 +60,7 @@ namespace lab8
 	}
 
 	template<class T, size_t N>
-	inline T FixedVector<T, N>::Get(unsigned int index) const
+	inline T& FixedVector<T, N>::Get(unsigned int index)
 	{
 		return mFixedVector[index];
 	}
