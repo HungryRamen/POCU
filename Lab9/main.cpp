@@ -64,10 +64,10 @@ int main()
 	assert(activeGameObjects[2] == activeGameObjects2[2]);
 	assert(activeGameObjects[3] == activeGameObjects2[3]);
 
-	//auto& op2 = game.GetObjectPool();
-	//IceCube* i6 = op2.Get();
-	//
-	//assert(i6 == i5);
-	//
-	//op2.Return(i6);
+	auto& op2 = game.GetObjectPool();
+	IceCube* i6 = op2.Get();
+	
+	assert(i6 == i5);
+	
+	op2.Return(i6);
 }

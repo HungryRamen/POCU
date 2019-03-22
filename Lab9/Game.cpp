@@ -47,7 +47,7 @@ namespace lab9
 	{
 		return mActiveGameObjects;
 	}
-	const ObjectPool<IceCube>& Game::GetObjectPool() const
+	ObjectPool<IceCube>& Game::GetObjectPool()
 	{
 		return mObjectPoolIceCube;
 	}

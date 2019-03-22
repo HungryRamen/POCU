@@ -2,12 +2,12 @@
 #include <queue>
 namespace lab9
 {
-	template <typename T>
+	template <class T>
 	class ObjectPool final
 	{
 	public:
 		ObjectPool(size_t maxPoolSize);
-		ObjectPool(ObjectPool& copy) = delete;
+		ObjectPool(const ObjectPool& copy) = delete;
 		~ObjectPool();
 		T* Get();
 		void Return(T* t);
