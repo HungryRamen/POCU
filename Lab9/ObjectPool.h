@@ -8,6 +8,7 @@ namespace lab9
 	public:
 		ObjectPool(size_t maxPoolSize);
 		ObjectPool(const ObjectPool& copy) = delete;
+		ObjectPool& operator=(const ObjectPool& copy) = delete;
 		~ObjectPool();
 		T* Get();
 		void Return(T* t);
