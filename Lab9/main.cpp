@@ -66,8 +66,8 @@ int main()
 
 	//auto& op2 = game.GetObjectPool();
 	//IceCube* i6 = op2.Get();
-	
+	//
 	//assert(i6 == i5);
-	
+	//
 	//op2.Return(i6);
 }
