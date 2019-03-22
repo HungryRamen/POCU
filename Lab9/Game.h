@@ -9,7 +9,7 @@ namespace lab9
 	class Game final
 	{
 	public:
-		Game(unsigned int seed,unsigned int poolsize);
+		Game(unsigned int seed, unsigned int poolsize);
 		Game(const Game& other) = delete;
 		~Game();
 

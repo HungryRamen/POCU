@@ -8,6 +8,7 @@ namespace lab9
 	public:
 		ObjectPool(size_t maxPoolSize);
 		ObjectPool(const ObjectPool& copy) = delete;
+		~ObjectPool();
 		T* Get();
 		void Return(T* t);
 		size_t GetFreeObjectCount();
@@ -17,9 +18,18 @@ namespace lab9
 		std::queue<T*> mObjectPoolQueue;
 	};
 	template<typename T>
-	inline ObjectPool<T>::ObjectPool(size_t maxPoolSize):
+	inline ObjectPool<T>::ObjectPool(size_t maxPoolSize) :
 		mMaxPoolSize(maxPoolSize)
 	{
+	}
+	template<typename T>
+	inline ObjectPool<T>::~ObjectPool()
+	{
+		while (!mObjectPoolQueue.empty())
+		{
+			delete mObjectPoolQueue.front();
+			mObjectPoolQueue.pop();
+		}
 	}
 	template<typename T>
 	inline T* ObjectPool<T>::Get()
@@ -32,7 +42,7 @@ namespace lab9
 		mObjectPoolQueue.pop();
 		return t;
 	}
-	
+
 	template<typename T>
 	inline void ObjectPool<T>::Return(T* t)
 	{
