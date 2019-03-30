@@ -77,7 +77,7 @@ void test2()
 		list1.Print();
 		assert(*list1[9]->Data = 13);
 		list1.Insert(std::make_unique<int>(14), 5);
-		assert(*list1[5]->Data == 14);
+ 		assert(*list1[5]->Data == 14);
 
 		const size_t checkLength = list1.GetLength() - 1;
 		for (size_t index = 0; index < checkLength; index++)
