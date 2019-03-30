@@ -14,23 +14,15 @@ namespace lab10
 		std::shared_ptr<Node<T>> Next;
 		std::weak_ptr<Node<T>> Previous;
 
-		void SetNext(const std::shared_ptr<Node<T>> next);
 	};
-	template<typename T>
-	Node<T>::Node(std::unique_ptr<T> data) :
+	template<typename T> Node<T>::Node(std::unique_ptr<T> data) :
 		Data(std::move(data))
 	{
 	}
 
-	template<typename T>
-	Node<T>::Node(std::unique_ptr<T> data, std::shared_ptr<Node<T>> prev) :
+	template<typename T> Node<T>::Node(std::unique_ptr<T> data, std::shared_ptr<Node<T>> prev) :
 		Data(std::move(data)),
 		Previous(prev)
 	{
-	}
-	template<typename T>
-	inline void Node<T>::SetNext(const std::shared_ptr<Node<T>> next)
-	{
-		Next = next;
 	}
 }
