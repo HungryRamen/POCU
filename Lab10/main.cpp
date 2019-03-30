@@ -6,62 +6,85 @@ using namespace lab10;
 
 void test2()
 {
-	DoublyLinkedList<int> list;
+	enum class eMAX_SIZE
+	{
+		SIZE = 10
+	};
 
-	list.Insert(std::make_unique<int>(1), 0);
-	assert(list.GetLength() == 1);
-	assert(*list[0]->Data == 1);
-	std::cout << "Test Insert(data, index) - initial List: PASS" << std::endl;
+	DoublyLinkedList<int> list1;
 
-	list.Insert(std::make_unique<int>(2));
-	assert(*list[0]->Next->Data == 2);
-	assert(list.GetLength() == 2);
-	assert(*list[1]->Data == 2);
-	std::cout << "Test Insert(data): PASS" << std::endl;
+	{
+		assert(list1.GetLength() == 0);
+		assert(list1.Delete(1) == false);
+		assert(list1.Search(1) == false);
+		assert(list1[0] == nullptr);
+	}
 
-	list.Insert(std::make_unique<int>(3));
-	list.Insert(std::make_unique<int>(4));
-	list.Insert(std::make_unique<int>(6));
-	list.Insert(std::make_unique<int>(7));
+	for (size_t index = 0; index < static_cast<size_t>(eMAX_SIZE::SIZE); index++)
+	{
+		list1.Insert(std::make_unique<int>(index));
+	}
 
-	assert(*list[0]->Data == 1);
-	assert(*list[1]->Data == 2);
-	assert(*list[2]->Data == 3);
-	assert(*list[3]->Data == 4);
-	assert(*list[4]->Data == 6);
-	assert(*list[5]->Data == 7);
+	for (size_t index = 0; index < static_cast<size_t>(eMAX_SIZE::SIZE); index++)
+	{
+		assert(*list1[index]->Data == index);
+	}
 
-	list.Insert(std::make_unique<int>(5), 4);
+	for (size_t index = 0; index < list1.GetLength() - 1; index++)
+	{
+		assert(*list1[index]->Data == *list1[index + 1]->Previous.lock()->Data);
+	}
 
-	assert(*list[0]->Data == 1);
-	assert(*list[1]->Data == 2);
-	assert(*list[2]->Data == 3);
-	assert(*list[3]->Data == 4);
-	assert(*list[4]->Data == 5);
-	assert(*list[5]->Data == 6);
-	assert(*list[6]->Data == 7);
-	
-	list.Print();
-	list.Delete(1);
-	list.Delete(2);
-	list.Delete(3);
-	list.Delete(4);
-	list.Delete(5);
-	list.Delete(6);
-	list.Delete(7);
-	list.Print();
+	assert(list1.GetLength() == 10);
 
-	list.Insert(std::make_unique<int>(1));
-	list.Print();
-	assert(*list[0]->Data == 1);
-	std::cout << "Test Insert(data) - Insert() again after cleared list: PASS" << std::endl;
+	{
+		assert(list1.Search(0) == true);
+		assert(list1.Search(15) == false);
+		assert(list1.Search(7) == true);
+		assert(list1.Search(9) == true);
+	}
 
-	list.Delete(1);
-	list.Print();
-	list.Insert(std::make_unique<int>(2), 1);
-	list.Print();
-	assert(*list[0]->Data == 2);
-	std::cout << "Test Insert(data, index) - Insert() again after cleared list: PASS" << std::endl;
+	{
+		assert(list1.Delete(11) == false);
+		assert(list1.Delete(0) == true);
+		assert(*list1[0]->Data == 1);
+		assert(list1.Delete(9) == true);
+		assert(*list1[7]->Data == 8);
+		assert(list1.Delete(5) == true);
+		assert(*list1[4]->Data == 6);
+		assert(list1.GetLength() == 7);
+		assert(list1.Delete(5) == false);
+
+		const size_t checkLength = list1.GetLength() - 1;
+		for (size_t index = 0; index < checkLength; index++)
+		{
+			assert(*list1[index]->Data == *list1[index + 1]->Previous.lock()->Data);
+		}
+	}
+
+	{
+		list1.Print();
+		list1.Insert(std::make_unique<int>(11), 0);
+		list1.Print();
+		assert(*list1[0]->Data == 11);
+		assert(*list1[1]->Data == 1);
+		list1.Insert(std::make_unique<int>(12), 1);
+		list1.Print();
+		assert(*list1[1]->Data == 12);
+		assert(*list1[2]->Data == 1);
+		assert(list1.GetLength() == 9);
+		list1.Insert(std::make_unique<int>(13), 15);
+		list1.Print();
+		assert(*list1[9]->Data = 13);
+		list1.Insert(std::make_unique<int>(14), 5);
+		assert(*list1[5]->Data == 14);
+
+		const size_t checkLength = list1.GetLength() - 1;
+		for (size_t index = 0; index < checkLength; index++)
+		{
+			assert(*list1[index]->Data == *list1[index + 1]->Previous.lock()->Data);
+		}
+	}
 }
 
 int main()
@@ -102,6 +125,11 @@ int main()
 
 	node = list[2];
 	assert(*node->Data == 10);
+
+	list.Insert(std::make_unique<int>(0));
+
+	bSearched = list.Search(0);
+	assert(bSearched);
 
 	return 0;
 }

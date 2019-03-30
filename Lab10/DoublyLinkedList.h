@@ -52,29 +52,29 @@ namespace lab10
 	template<typename T>
 	void DoublyLinkedList<T>::Insert(std::unique_ptr<T> data, unsigned int index)
 	{
-		if (mLength++ <= index)
+		if (mLength <= index)
 		{
-			if (mHead == nullptr)
-			{
-				std::shared_ptr<Node<T>> newNode = std::make_shared<Node<T>>(std::move(data));
-				mHead = newNode;
-				mTail = newNode;
-				return;
-			}
-			std::shared_ptr<Node<T>> newNode = std::make_shared<Node<T>>(std::move(data), mTail.lock());
-			mTail.lock()->Next = newNode;
-			mTail = newNode;
+			Insert(std::move(data));
 			return;
 		}
+		mLength++;
 		std::shared_ptr<Node<T>> tempNode = mHead;
 		for (unsigned int i = 0; i < index; i++)
 		{
 			tempNode = tempNode->Next;
 		}
 		std::shared_ptr<Node<T>> newNode = std::make_shared<Node<T>>(std::move(data), tempNode->Previous.lock());
+		if (tempNode == mHead)
+		{
+			mHead = newNode;
+		}
+		if (tempNode == mTail.lock())
+		{
+			mTail = newNode;
+		}
 		newNode->Next = tempNode;
-		std::shared_ptr<Node<T>> PrvNode = tempNode->Previous.lock();
-		tempNode->Previous.lock()->Next = newNode;
+		if (tempNode->Previous.lock() != nullptr)
+			tempNode->Previous.lock()->Next = newNode;
 		tempNode->Previous = newNode;
 	}
 
@@ -91,7 +91,11 @@ namespace lab10
 				{
 					mHead = temp->Next;
 				}
-				if(temp->Next != nullptr)
+				if (temp == mTail.lock().get())
+				{
+					mTail = temp->Previous;
+				}
+				if (temp->Next != nullptr)
 					temp->Next->Previous = temp->Previous;
 				if (temp->Previous.lock() != nullptr)
 				{
