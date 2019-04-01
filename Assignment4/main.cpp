@@ -54,6 +54,15 @@ int main()
 	
 	bSearched = tree.Search(15);
 	assert(!bSearched);
+	tree.Delete(10);
+	tree.Delete(5);
+	tree.Delete(4);
+	tree.Delete(19);
+	tree.Delete(20);
+	tree.Delete(17);
+	tree.Delete(12);
+	v = tree.TraverseInOrder(tree.GetRootNode().lock());
 
+	assert(v.size() == 0);
 	return 0;
 }
