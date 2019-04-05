@@ -23,8 +23,7 @@ namespace lab11
 		unsigned int mLength;
 	};
 
-	template<typename T>
-	Storage<T>::Storage(unsigned int length) :
+	template<typename T> Storage<T>::Storage(unsigned int length) :
 		mData(std::make_unique<T[]>(length)),
 		mLength(length)
 	{
@@ -79,6 +78,7 @@ namespace lab11
 			mLength = copy.mLength;
 			mData = std::make_unique<T[]>(mLength);
 			mData = std::move(copy.mData);
+			copy.mData.reset();
 			copy.mLength = 0;
 		}
 		return *this;

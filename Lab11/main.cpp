@@ -87,7 +87,7 @@ int main()
 		storage5copy.Update(i, SIZE2 - i - 1);
 		assert(data5[i] == SIZE2 - i - 1);
 	}
-	storage5copy = std::move(storage3Copy);
+	storage5copy = std::move(storage5copy);
 	storage5copy = storage5;
 	return 0;
 }
