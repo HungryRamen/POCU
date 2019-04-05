@@ -72,8 +72,8 @@ namespace lab11
 		if (this != &copy)
 		{
 			mData.reset();
-			mData = std::make_unique<T[]>(mLength);
 			mLength = copy.mLength;
+			mData = std::make_unique<T[]>(mLength);
 			memcpy(mData.get(), copy.mData.get(), sizeof(T) * mLength);
 		}
 		return *this;
