@@ -10,7 +10,6 @@ namespace lab11
 	public:
 		Storage(unsigned int length);
 		Storage(unsigned int length, const T& initialValue);
-		~Storage();
 		Storage(Storage& copy);
 		Storage(Storage&& copy);
 		Storage<T>& operator=(const Storage& copy);
@@ -32,8 +31,7 @@ namespace lab11
 		memset(mData.get(), 0, sizeof(T) * length);
 	}
 
-	template<typename T>
-	Storage<T>::Storage(unsigned int length, const T& initialValue) :
+	template<typename T> Storage<T>::Storage(unsigned int length, const T& initialValue) :
 		mData(std::make_unique<T[]>(length)),
 		mLength(length)
 	{
@@ -43,14 +41,7 @@ namespace lab11
 		}
 	}
 
-	template<typename T>
-	inline Storage<T>::~Storage()
-	{
-		mData.reset();
-	}
-
-	template<typename T>
-	inline Storage<T>::Storage(Storage& copy) :
+	template<typename T> inline Storage<T>::Storage(Storage& copy) :
 		mData(std::make_unique<T[]>(copy.mLength)),
 		mLength(copy.mLength)
 	{
