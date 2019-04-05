@@ -76,9 +76,7 @@ namespace lab11
 		{
 			mData.reset();
 			mLength = copy.mLength;
-			mData = std::make_unique<T[]>(mLength);
 			mData = std::move(copy.mData);
-			copy.mData.reset();
 			copy.mLength = 0;
 		}
 		return *this;
